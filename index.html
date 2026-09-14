@@ -131,13 +131,29 @@
     <!-- LEARN SCREEN -->
     <section id="screen-learn" class="screen">
       <div class="learn-header">
-        <h2>Knowledge Elevates Your Experience</h2>
-        <p>Explore. Learn. Elevate.</p>
+        <h2>Cannabis Education</h2>
+        <p style="color: #a0a0a0; font-size: 0.85rem; margin-top: 4px;">Explore strains, effects, and terpene profiles.</p>
       </div>
-      <div class="category-list" style="margin-top: 15px;">
-        <div class="category-item"><i class="fa-solid fa-book-open"></i> Strain Library <span>&rsaquo;</span></div>
-        <div class="category-item"><i class="fa-solid fa-seedling"></i> Terpenes Explained <span>&rsaquo;</span></div>
-        <div class="category-item"><i class="fa-solid fa-scale-balanced"></i> Indica vs Sativa vs Hybrid <span>&rsaquo;</span></div>
+
+      <!-- Strain Category Filter Buttons -->
+      <div class="filter-tabs" style="display: flex; gap: 8px; margin: 16px 0;">
+        <button class="filter-btn active" onclick="filterStrains('all', this)">All</button>
+        <button class="filter-btn" onclick="filterStrains('indica', this)">Indica</button>
+        <button class="filter-btn" onclick="filterStrains('sativa', this)">Sativa</button>
+        <button class="filter-btn" onclick="filterStrains('hybrid', this)">Hybrid</button>
+      </div>
+
+      <!-- Dynamic Strain Cards Grid -->
+      <div id="strain-grid" class="strain-grid">
+        <!-- Rendered dynamically via JS -->
+      </div>
+
+      <!-- Terpenes Section -->
+      <div class="section-header" style="margin-top: 28px; margin-bottom: 12px;">
+        <h3>Terpenes Guide</h3>
+      </div>
+      <div id="terpene-list" class="terpene-grid">
+        <!-- Rendered dynamically via JS -->
       </div>
     </section>
 

@@ -192,4 +192,61 @@ function claimReward(rewardId) {
 // Make sure renderLoyaltyScreen is called during tab switch or startup
 document.addEventListener('DOMContentLoaded', () => {
   renderLoyaltyScreen();
+});// Learn Data Configuration
+const strainGuide = [
+  { name: "Granddaddy Purple", type: "indica", thc: "23%", effect: "Relaxed, Sleepy, Euphoric", aroma: "Grape, Berry" },
+  { name: "Sour Diesel", type: "sativa", thc: "26%", effect: "Energetic, Uplifted, Creative", aroma: "Pungent, Fuel, Citrus" },
+  { name: "Blue Dream", type: "hybrid", thc: "21%", effect: "Balanced, Calm, Cerebral", aroma: "Sweet Berry, Herbal" },
+  { name: "Gelato #33", type: "hybrid", thc: "28%", effect: "Heavy Body High, Euphoric", aroma: "Sweet, Citrus, Lavender" }
+];
+
+const terpeneGuide = [
+  { name: "Myrcene", scent: "Earthy, Herbal", effect: "Sedative, Deep Muscle Relaxation", foundIn: "Granddaddy Purple, Mangoes" },
+  { name: "Limonene", scent: "Citrus, Lemon", effect: "Mood Elevation, Stress Relief", foundIn: "Sour Diesel, Lemon Rinds" },
+  { name: "Caryophyllene", scent: "Peppery, Woody", effect: "Anti-inflammatory, Anxiety Relief", foundIn: "GSC, Black Pepper" },
+  { name: "Linalool", scent: "Floral, Lavender", effect: "Calming, Anxiety Reduction", foundIn: "Do-Si-Dos, Lavender" }
+];
+
+function renderLearnScreen(typeFilter = 'all') {
+  // Render Strains
+  const strainContainer = document.getElementById('strain-grid');
+  if (strainContainer) {
+    const filtered = typeFilter === 'all' 
+      ? strainGuide 
+      : strainGuide.filter(s => s.type === typeFilter);
+
+    strainContainer.innerHTML = filtered.map(s => `
+      <div class="strain-card">
+        <div class="strain-header">
+          <h4 style="color:#ffffff;">${s.name}</h4>
+          <span class="strain-tag ${s.type}">${s.type} • ${s.thc}</span>
+        </div>
+        <p style="font-size:0.8rem; color:#a0a0a0; margin-top:4px;"><strong>Effects:</strong> ${s.effect}</p>
+        <p style="font-size:0.8rem; color:#81c784; margin-top:2px;"><strong>Aroma:</strong> ${s.aroma}</p>
+      </div>
+    `).join('');
+  }
+
+  // Render Terpenes
+  const terpeneContainer = document.getElementById('terpene-list');
+  if (terpeneContainer && terpeneContainer.children.length === 0) {
+    terpeneContainer.innerHTML = terpeneGuide.map(t => `
+      <div class="terpene-card">
+        <h4>${t.name}</h4>
+        <p><strong>Aroma:</strong> ${t.scent}</p>
+        <p style="margin-top:4px;"><strong>Effects:</strong> ${t.effect}</p>
+      </div>
+    `).join('');
+  }
+}
+
+function filterStrains(type, btnElement) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  if (btnElement) btnElement.classList.add('active');
+  renderLearnScreen(type);
+}
+
+// Hook into initial page load
+document.addEventListener('DOMContentLoaded', () => {
+  renderLearnScreen();
 });

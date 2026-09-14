@@ -334,4 +334,75 @@ body {
   font-weight: bold;
   color: #81c784;
   letter-spacing: 1px;
+}/* Learn Tab Styling */
+.filter-btn {
+  background: #141c16;
+  border: 1px solid #2e7d32;
+  color: #a0a0a0;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.filter-btn.active {
+  background: #2e7d32;
+  color: #ffffff;
+}
+
+.strain-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.strain-card {
+  background: #141c16;
+  border: 1px solid #1f2a22;
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.strain-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.strain-tag {
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.strain-tag.indica { background: rgba(156, 39, 176, 0.2); color: #ce93d8; border: 1px solid #ab47bc; }
+.strain-tag.sativa { background: rgba(255, 152, 0, 0.2); color: #ffcc80; border: 1px solid #ffa726; }
+.strain-tag.hybrid { background: rgba(76, 175, 80, 0.2); color: #a5d6a7; border: 1px solid #66bb6a; }
+
+.terpene-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.terpene-card {
+  background: #141c16;
+  border-left: 3px solid #2e7d32;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.terpene-card h4 {
+  color: #81c784;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.terpene-card p {
+  font-size: 0.75rem;
+  color: #a0a0a0;
 }
