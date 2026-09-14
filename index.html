@@ -10,246 +10,245 @@
 </head>
 <body>
 
-  <!-- Top Bar -->
-  <header class="top-bar">
-    <div class="brand">
-      <i class="fa-solid fa-cannabis brand-icon"></i>
-      <span class="brand-name">Canna Culture</span>
-    </div>
+  <!-- MOBILE WRAPPER CONTAINER -->
+  <div id="app-container">
 
-    <button class="location-btn" onclick="openLocationModal()">
-      <i class="fa-solid fa-location-dot"></i>
-      <span id="current-location-name">Charter Park</span>
-      <i class="fa-solid fa-chevron-down arrow-icon"></i>
-    </button>
+    <!-- Top Bar -->
+    <header class="top-bar">
+      <div class="brand">
+        <i class="fa-solid fa-cannabis brand-icon"></i>
+        <span class="brand-name">Canna Culture</span>
+      </div>
 
-    <div class="top-utilities">
-      <i class="fa-regular fa-bell utility-icon"></i>
-      <div class="cart-icon">
-        <i class="fa-solid fa-bag-shopping"></i>
-        <span class="cart-badge" id="cart-count">0</span>
+      <button class="location-btn" onclick="openLocationModal()">
+        <i class="fa-solid fa-location-dot"></i>
+        <span id="current-location-name">Charter Park</span>
+        <i class="fa-solid fa-chevron-down arrow-icon"></i>
+      </button>
+
+      <div class="top-utilities">
+        <i class="fa-regular fa-bell utility-icon"></i>
+        <div class="cart-icon">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge" id="cart-count">0</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Modals -->
+    <div id="age-modal" class="age-overlay">
+      <div class="age-card">
+        <i class="fa-solid fa-cannabis" style="font-size: 3rem; color: #2e7d32; margin-bottom: 12px;"></i>
+        <h2>Age Verification</h2>
+        <p>You must be 21 years of age or older to enter this app.</p>
+        <div class="age-buttons">
+          <button class="btn-primary" onclick="verifyAge(true)" style="width: 100%;">I am 21 or Older</button>
+          <button class="btn-outline" onclick="verifyAge(false)" style="width: 100%; margin-top: 8px;">I am Under 21</button>
+        </div>
       </div>
     </div>
-  </header>
 
-  <!-- Modals -->
-  <div id="age-modal" class="age-overlay">
-    <div class="age-card">
-      <i class="fa-solid fa-cannabis" style="font-size: 3rem; color: #2e7d32; margin-bottom: 12px;"></i>
-      <h2>Age Verification</h2>
-      <p>You must be 21 years of age or older to enter this app.</p>
-      <div class="age-buttons">
-        <button class="btn-primary" onclick="verifyAge(true)" style="width: 100%;">I am 21 or Older</button>
-        <button class="btn-outline" onclick="verifyAge(false)" style="width: 100%; margin-top: 8px;">I am Under 21</button>
+    <div id="location-modal" class="age-overlay" style="display: none;">
+      <div class="age-card">
+        <i class="fa-solid fa-store" style="font-size: 2.5rem; color: #2e7d32; margin-bottom: 12px;"></i>
+        <h2>Select Dispensary Location</h2>
+        <p>Choose a store location to load its live menu and details.</p>
+        <div class="location-buttons" style="display: flex; flex-direction: column; gap: 10px;">
+          <button class="btn-primary" onclick="setLocation('loc1')">Charter Park</button>
+          <button class="btn-primary" onclick="setLocation('loc2')">Midtown</button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div id="location-modal" class="age-overlay" style="display: none;">
-    <div class="age-card">
-      <i class="fa-solid fa-store" style="font-size: 2.5rem; color: #2e7d32; margin-bottom: 12px;"></i>
-      <h2>Select Dispensary Location</h2>
-      <p>Choose a store location to load its live menu and details.</p>
-      <div class="location-buttons" style="display: flex; flex-direction: column; gap: 10px;">
-        <button class="btn-primary" onclick="setLocation('loc1')">Charter Park</button>
-        <button class="btn-primary" onclick="setLocation('loc2')">Midtown</button>
-      </div>
-    </div>
-  </div>
+    <!-- App Content Screens -->
+    <main id="app-content">
 
-  <!-- App Content Screens -->
-  <main id="app-content">
+      <!-- HOME / MENU SCREEN -->
+      <section id="screen-home" class="screen active">
+        <div class="hero-banner">
+          <h2>Premium Cannabis.</h2>
+          <p>Rooted in Quality.</p>
+          <button class="btn-primary" onclick="switchTab('menu')">SHOP MENU</button>
+        </div>
 
-    <!-- HOME SCREEN -->
-    <section id="screen-home" class="screen active">
-      <div class="hero-banner">
-        <h2>Premium Cannabis.</h2>
-        <p>Rooted in Quality.</p>
-        <button class="btn-primary" onclick="switchTab('menu')">SHOP MENU</button>
-      </div>
+        <div class="deal-card">
+          <span class="tag">DAILY DEAL</span>
+          <h3>20% OFF</h3>
+          <p>Select Flower Today Only</p>
+          <button class="btn-outline" onclick="switchTab('deals')">VIEW DEALS</button>
+        </div>
 
-      <div class="deal-card">
-        <span class="tag">DAILY DEAL</span>
-        <h3>20% OFF</h3>
-        <p>Select Flower Today Only</p>
-        <button class="btn-outline" onclick="switchTab('deals')">VIEW DEALS</button>
-      </div>
+        <div class="section-header">
+          <h3>Featured Products</h3>
+          <span class="see-all-link" onclick="switchTab('menu')">See All</span>
+        </div>
 
-      <div class="section-header">
-        <h3>Featured Products</h3>
-        <span class="see-all-link" onclick="switchTab('menu')">See All</span>
-      </div>
+        <div class="product-grid" id="featured-products"></div>
+      </section>
 
-      <div class="product-grid" id="featured-products"></div>
-    </section>
+      <!-- MENU SCREEN (Jane Embedded) -->
+      <section id="screen-menu" class="screen">
+        <div class="iframe-container" style="width: 100%; height: calc(100vh - 140px); overflow: hidden; border-radius: 8px;">
+          <iframe 
+            id="menu-iframe"
+            src="" 
+            style="width: 100%; height: 100%; border: none;"
+            title="Jane Dispensary Live Menu"
+            allow="geolocation; camera; payment">
+          </iframe>
+        </div>
+      </section>
 
-    <!-- MENU SCREEN -->
-    <section id="screen-menu" class="screen">
-      <div class="iframe-container" style="width: 100%; height: calc(100vh - 140px); overflow: hidden; border-radius: 8px;">
-        <iframe 
-          id="menu-iframe"
-          src="" 
-          style="width: 100%; height: 100%; border: none;"
-          title="Jane Dispensary Live Menu"
-          allow="geolocation; camera; payment">
-        </iframe>
-      </div>
-    </section>
-
-    <!-- DEALS SCREEN -->
-    <section id="screen-deals" class="screen">
-      <div class="screen-title-bar">
-        <h2>Deals & Specials</h2>
-      </div>
-      <div class="filter-tabs">
-        <button class="filter-btn active">All Deals</button>
-        <button class="filter-btn">Daily Deals</button>
-        <button class="filter-btn">Happy Hour</button>
-        <button class="filter-btn">App-Only</button>
-      </div>
-      <div class="app-deal-banner">
-        <div class="deal-info">
-          <span class="badge-gold">APP-ONLY DEAL</span>
-          <h3>25% OFF</h3>
+      <!-- DEALS SCREEN -->
+      <section id="screen-deals" class="screen">
+        <div class="screen-title-bar">
+          <h2>Deals & Specials</h2>
+        </div>
+        <div class="filter-tabs" style="display: flex; gap: 8px; margin: 16px 0; overflow-x: auto;">
+          <button class="filter-btn active">All Deals</button>
+          <button class="filter-btn">Daily Deals</button>
+          <button class="filter-btn">Happy Hour</button>
+          <button class="filter-btn">App-Only</button>
+        </div>
+        <div class="deal-card" style="border-color: #2e7d32;">
+          <span class="tag" style="background: #2e7d32; color: #fff;">APP-ONLY DEAL</span>
+          <h3 style="margin-top: 6px;">25% OFF</h3>
           <p>Select Concentrates</p>
-          <button class="btn-primary-sm" onclick="switchTab('menu')">SHOP NOW</button>
+          <button class="btn-primary" onclick="switchTab('menu')">SHOP NOW</button>
+        </div>
+        <div class="list-rows-group">
+          <div class="list-row"><i class="fa-regular fa-clock"></i> <div><h4>Daily Deals</h4><p>New deals every day</p></div> <i class="fa-solid fa-chevron-right arrow"></i></div>
+          <div class="list-row"><i class="fa-solid fa-wine-glass"></i> <div><h4>Happy Hour</h4><p>Specials for a limited time</p></div> <i class="fa-solid fa-chevron-right arrow"></i></div>
+          <div class="list-row"><i class="fa-solid fa-mobile-screen"></i> <div><h4>App-Only Deals</h4><p>Exclusive savings for you</p></div> <i class="fa-solid fa-chevron-right arrow"></i></div>
+          <div class="list-row"><i class="fa-solid fa-tag"></i> <div><h4>Clearance</h4><p>Last call deals</p></div> <i class="fa-solid fa-chevron-right arrow"></i></div>
+        </div>
+      </section>
+
+      <!-- LOYALTY SCREEN -->
+      <section id="screen-loyalty" class="screen">
+        <div class="hero-banner" style="background: linear-gradient(135deg, #182a1c, #0c140d);">
+          <h3>Welcome back!</h3>
+          <p style="color: #a0a0a0; font-size: 0.85rem; margin-top: 4px;">You're earning greatness.</p>
+          <div style="margin-top: 16px;">
+            <span style="font-size: 2.2rem; font-weight: bold; color: #81c784;" id="user-points">420</span>
+            <span style="font-size: 0.9rem; color: #aaa;">Points</span>
+          </div>
+        </div>
+
+        <div class="section-header" style="margin-top: 20px; margin-bottom: 12px;">
+          <h3>Available Rewards</h3>
+        </div>
+        <div id="rewards-list" class="rewards-grid"></div>
+
+        <div class="section-header" style="margin-top: 24px; margin-bottom: 12px;">
+          <h3>Your Active Coupons</h3>
+        </div>
+        <div id="active-coupons-list" class="active-coupons-container"></div>
+      </section>
+
+      <!-- LEARN SCREEN -->
+      <section id="screen-learn" class="screen">
+        <div class="learn-header">
+          <h2>Knowledge Elevates Your Experience</h2>
+          <p style="color: #a0a0a0; font-size: 0.85rem; margin-top: 4px;">Explore. Learn. Elevate.</p>
+        </div>
+
+        <div class="filter-tabs" style="display: flex; gap: 8px; margin: 16px 0;">
+          <button class="filter-btn active" onclick="filterStrains('all', this)">All</button>
+          <button class="filter-btn" onclick="filterStrains('indica', this)">Indica</button>
+          <button class="filter-btn" onclick="filterStrains('sativa', this)">Sativa</button>
+          <button class="filter-btn" onclick="filterStrains('hybrid', this)">Hybrid</button>
+        </div>
+
+        <div id="strain-grid" class="strain-grid"></div>
+
+        <div class="section-header" style="margin-top: 28px; margin-bottom: 12px;">
+          <h3>Terpenes Guide</h3>
+        </div>
+        <div id="terpene-list" class="terpene-grid"></div>
+      </section>
+
+      <!-- IN-HOUSE SCREEN -->
+      <section id="screen-inhouse" class="screen">
+        <div class="hero-banner" style="background: linear-gradient(135deg, #182a1c, #0c140d); border-color: #2e7d32;">
+          <h2>Grown By Us.<br>Made For You.</h2>
+          <p style="color: #a0a0a0; font-size: 0.85rem; margin-top: 6px;">Premium in-house cannabis you won't find anywhere else.</p>
+          <button class="btn-primary" onclick="switchTab('menu')">SHOP IN-HOUSE</button>
+        </div>
+        <div class="list-rows-group">
+          <div class="list-row"><i class="fa-solid fa-seedling"></i> <div><h4>In-House Flower</h4><p>Grown with care</p></div> <i class="fa-solid fa-chevron-right arrow"></i></div>
+          <div class="list-row"><i class="fa-solid fa-joint"></i> <div><h4>In-House Pre-Rolls</h4><p>Crafted by us</p></div> <i class="fa-solid fa-chevron-right arrow"></i></div>
+          <div class="list-row"><i class="fa-solid fa-fire"></i> <div><h4>Limited Drops</h4><p>Exclusive & limited</p></div> <i class="fa-solid fa-chevron-right arrow"></i></div>
+          <div class="list-row"><i class="fa-solid fa-leaf"></i> <div><h4>Grower's Picks</h4><p>Hand selected for you</p></div> <i class="fa-solid fa-chevron-right arrow"></i></div>
+        </div>
+      </section>
+
+      <!-- ACCOUNT SCREEN -->
+      <section id="screen-account" class="screen">
+        <div class="user-profile" style="display: flex; align-items: center; gap: 12px; padding: 12px 0;">
+          <i class="fa-solid fa-circle-user" style="font-size: 2.5rem; color: #2e7d32;"></i>
+          <div>
+            <h3 id="user-profile-name">Canna Culture Member</h3>
+            <span class="badge-verified" style="font-size: 0.75rem; color: #81c784;"><i class="fa-solid fa-circle-check"></i> Age Verified (21+)</span>
+          </div>
+        </div>
+
+        <div class="section-header" style="margin-top: 24px; margin-bottom: 12px;">
+          <h3>Dispensary Locations</h3>
+        </div>
+        <div id="account-store-list" class="store-details-list"></div>
+
+        <div class="section-header" style="margin-top: 24px; margin-bottom: 12px;">
+          <h3>Order History</h3>
+        </div>
+        <div id="order-history-list" class="order-history-container"></div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Navigation Bar (Centered 6-Tab Bar) -->
+    <nav class="bottom-nav">
+      <button class="nav-btn active" onclick="switchTab('home')">
+        <i class="fa-solid fa-cannabis"></i>
+        <span>Menu</span>
+      </button>
+      <button class="nav-btn" onclick="switchTab('deals')">
+        <i class="fa-solid fa-tag"></i>
+        <span>Deals</span>
+      </button>
+      <button class="nav-btn" onclick="switchTab('loyalty')">
+        <i class="fa-regular fa-heart"></i>
+        <span>Loyalty</span>
+      </button>
+      <button class="nav-btn" onclick="switchTab('learn')">
+        <i class="fa-solid fa-lightbulb"></i>
+        <span>Learn</span>
+      </button>
+      <button class="nav-btn" onclick="switchTab('inhouse')">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>In-House</span>
+      </button>
+      <button class="nav-btn" onclick="switchTab('account')">
+        <i class="fa-regular fa-user"></i>
+        <span>Account</span>
+      </button>
+    </nav>
+
+    <!-- Mobile PWA Install Banner -->
+    <div id="pwa-install-banner" class="install-banner" style="display: none;">
+      <div class="install-content">
+        <i class="fa-solid fa-cannabis install-icon"></i>
+        <div class="install-text">
+          <h4>Install Canna Culture</h4>
+          <p>Add to home screen for quick orders & rewards</p>
         </div>
       </div>
-      <div class="list-rows-group">
-        <div class="list-row"><i class="fa-regular fa-clock"></i> <div><h4>Daily Deals</h4><p>New deals every day</p></div> <i class="fa-solid fa-chevron-right arrow"></i></div>
-        <div class="list-row"><i class="fa-solid fa-wine-glass"></i> <div><h4>Happy Hour</h4><p>Specials for a limited time</p></div> <i class="fa-solid fa-chevron-right arrow"></i></div>
-        <div class="list-row"><i class="fa-solid fa-mobile-screen"></i> <div><h4>App-Only Deals</h4><p>Exclusive savings for you</p></div> <i class="fa-solid fa-chevron-right arrow"></i></div>
-        <div class="list-row"><i class="fa-solid fa-tag"></i> <div><h4>Clearance</h4><p>Last call deals</p></div> <i class="fa-solid fa-chevron-right arrow"></i></div>
-      </div>
-    </section>
-
-    <!-- LOYALTY SCREEN -->
-    <section id="screen-loyalty" class="screen">
-      <div class="loyalty-card">
-        <h3>Welcome back!</h3>
-        <p class="subtext">You're earning greatness.</p>
-        <div class="points-display">
-          <span class="points-val" id="user-points">420</span>
-          <span class="points-lbl">Points</span>
-        </div>
-        <div class="progress-bar">
-          <div class="progress-fill" id="loyalty-progress-fill" style="width: 84%;"></div>
-        </div>
-        <p class="progress-text" id="loyalty-progress-text">80 points until next tier reward!</p>
-      </div>
-
-      <div class="section-header" style="margin-top: 20px; margin-bottom: 12px;">
-        <h3>Available Rewards</h3>
-      </div>
-      <div id="rewards-list" class="rewards-grid"></div>
-
-      <div class="section-header" style="margin-top: 24px; margin-bottom: 12px;">
-        <h3>Your Active Coupons</h3>
-      </div>
-      <div id="active-coupons-list" class="active-coupons-container"></div>
-    </section>
-
-    <!-- LEARN SCREEN -->
-    <section id="screen-learn" class="screen">
-      <div class="learn-header">
-        <h2>Knowledge Elevates Your Experience</h2>
-        <p style="color: #a0a0a0; font-size: 0.85rem; margin-top: 4px;">Explore. Learn. Elevate.</p>
-      </div>
-
-      <div class="filter-tabs" style="display: flex; gap: 8px; margin: 16px 0;">
-        <button class="filter-btn active" onclick="filterStrains('all', this)">All</button>
-        <button class="filter-btn" onclick="filterStrains('indica', this)">Indica</button>
-        <button class="filter-btn" onclick="filterStrains('sativa', this)">Sativa</button>
-        <button class="filter-btn" onclick="filterStrains('hybrid', this)">Hybrid</button>
-      </div>
-
-      <div id="strain-grid" class="strain-grid"></div>
-
-      <div class="section-header" style="margin-top: 28px; margin-bottom: 12px;">
-        <h3>Terpenes Guide</h3>
-      </div>
-      <div id="terpene-list" class="terpene-grid"></div>
-    </section>
-
-    <!-- IN-HOUSE SCREEN -->
-    <section id="screen-inhouse" class="screen">
-      <div class="inhouse-hero">
-        <h2>Grown By Us.<br>Made For You.</h2>
-        <p>Premium in-house cannabis you won't find anywhere else.</p>
-        <button class="btn-primary" onclick="switchTab('menu')">SHOP IN-HOUSE</button>
-      </div>
-      <div class="list-rows-group">
-        <div class="list-row"><i class="fa-solid fa-seedling"></i> <div><h4>In-House Flower</h4><p>Grown with care</p></div> <i class="fa-solid fa-chevron-right arrow"></i></div>
-        <div class="list-row"><i class="fa-solid fa-joint"></i> <div><h4>In-House Pre-Rolls</h4><p>Crafted by us</p></div> <i class="fa-solid fa-chevron-right arrow"></i></div>
-        <div class="list-row"><i class="fa-solid fa-fire"></i> <div><h4>Limited Drops</h4><p>Exclusive & limited</p></div> <i class="fa-solid fa-chevron-right arrow"></i></div>
-        <div class="list-row"><i class="fa-solid fa-leaf"></i> <div><h4>Grower's Picks</h4><p>Hand selected for you</p></div> <i class="fa-solid fa-chevron-right arrow"></i></div>
-      </div>
-    </section>
-
-    <!-- ACCOUNT SCREEN -->
-    <section id="screen-account" class="screen">
-      <div class="user-profile">
-        <i class="fa-solid fa-circle-user profile-avatar"></i>
-        <div>
-          <h3 id="user-profile-name">Canna Culture Member</h3>
-          <span class="badge-verified"><i class="fa-solid fa-circle-check"></i> Age Verified (21+)</span>
-        </div>
-      </div>
-
-      <div class="section-header" style="margin-top: 24px; margin-bottom: 12px;">
-        <h3>Dispensary Locations</h3>
-      </div>
-      <div id="account-store-list" class="store-details-list"></div>
-
-      <div class="section-header" style="margin-top: 24px; margin-bottom: 12px;">
-        <h3>Order History</h3>
-      </div>
-      <div id="order-history-list" class="order-history-container"></div>
-    </section>
-
-  </main>
-
-  <!-- Bottom Navigation Bar (6-Tab Layout) -->
-  <nav class="bottom-nav">
-    <button class="nav-btn active" onclick="switchTab('home')">
-      <i class="fa-solid fa-cannabis"></i>
-      <span>Menu</span>
-    </button>
-    <button class="nav-btn" onclick="switchTab('deals')">
-      <i class="fa-solid fa-tag"></i>
-      <span>Deals</span>
-    </button>
-    <button class="nav-btn" onclick="switchTab('loyalty')">
-      <i class="fa-regular fa-heart"></i>
-      <span>Loyalty</span>
-    </button>
-    <button class="nav-btn" onclick="switchTab('learn')">
-      <i class="fa-solid fa-lightbulb"></i>
-      <span>Learn</span>
-    </button>
-    <button class="nav-btn" onclick="switchTab('inhouse')">
-      <i class="fa-solid fa-shield-halved"></i>
-      <span>In-House</span>
-    </button>
-    <button class="nav-btn" onclick="switchTab('account')">
-      <i class="fa-regular fa-user"></i>
-      <span>Account</span>
-    </button>
-  </nav>
-
-  <!-- PWA Install Banner -->
-  <div id="pwa-install-banner" class="install-banner" style="display: none;">
-    <div class="install-content">
-      <i class="fa-solid fa-cannabis install-icon"></i>
-      <div class="install-text">
-        <h4>Install Canna Culture</h4>
-        <p>Add to home screen for quick orders & rewards</p>
+      <div class="install-actions">
+        <button class="btn-primary" onclick="triggerPWAInstall()">Install</button>
+        <button class="btn-close" onclick="dismissPWAInstall()"><i class="fa-solid fa-xmark"></i></button>
       </div>
     </div>
-    <div class="install-actions">
-      <button class="btn-primary" onclick="triggerPWAInstall()">Install</button>
-      <button class="btn-close" onclick="dismissPWAInstall()"><i class="fa-solid fa-xmark"></i></button>
-    </div>
+
   </div>
 
   <script src="script.js"></script>
