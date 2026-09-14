@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Canna Culture Dispensary</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body>
+
+  <!-- Top Bar with Location Selector Button -->
+  <header class="top-bar">
+    <div class="brand">
+      <i class="fa-solid fa-cannabis brand-icon"></i>
+      <span class="brand-name">Canna Culture</span>
+    </div>
+
+    <!-- Explicit Location Selector Button -->
+    <button class="location-btn" onclick="openLocationModal()">
+      <i class="fa-solid fa-location-dot"></i>
+      <span id="current-location-name">Charter Park</span>
+      <i class="fa-solid fa-chevron-down arrow-icon"></i>
+    </button>
+
+    <div class="cart-icon">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span class="cart-badge" id="cart-count">0</span>
+    </div>
+  </header>
+
+  <!-- 21+ Age Verification Modal -->
+  <div id="age-modal" class="age-overlay">
+    <div class="age-card">
+      <i class="fa-solid fa-cannabis" style="font-size: 3rem; color: #2e7d32; margin-bottom: 12px;"></i>
+      <h2>Age Verification</h2>
+      <p>You must be 21 years of age or older to enter this app.</p>
+      <div class="age-buttons">
+        <button class="btn-primary" onclick="verifyAge(true)" style="width: 100%;">I am 21 or Older</button>
+        <button class="btn-outline" onclick="verifyAge(false)" style="width: 100%; margin-top: 8px;">I am Under 21</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Location Selection Modal -->
+  <div id="location-modal" class="age-overlay" style="display: none;">
+    <div class="age-card">
+      <i class="fa-solid fa-store" style="font-size: 2.5rem; color: #2e7d32; margin-bottom: 12px;"></i>
+      <h2>Select Dispensary Location</h2>
+      <p>Choose a store location to load its live menu and details.</p>
+      <div class="location-buttons" style="display: flex; flex-direction: column; gap: 10px;">
+        <button class="btn-primary" onclick="setLocation('loc1')">Charter Park</button>
+        <button class="btn-primary" onclick="setLocation('loc2')">Midtown</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content Screens -->
+  <main id="app-content">
+
+    <!-- HOME SCREEN -->
+    <section id="screen-home" class="screen active">
+      <div class="hero-banner">
+        <h2>Premium Cannabis.</h2>
+        <p>Rooted in Quality.</p>
+        <button class="btn-primary" onclick="switchTab('menu')">SHOP MENU</button>
+      </div>
+
+      <div class="deal-card">
+        <span class="tag">DAILY DEAL</span>
+        <h3>20% OFF</h3>
+        <p>Select Flower Today Only</p>
+        <button class="btn-outline" onclick="switchTab('menu')">VIEW DEALS</button>
+      </div>
+
+      <div class="section-header">
+        <h3>Featured Products</h3>
+      </div>
+
+      <div class="product-grid" id="featured-products">
+        <!-- Products populated by JS -->
+      </div>
+    </section>
+
+    <!-- MENU SCREEN (Embedded Live Menu) -->
+    <section id="screen-menu" class="screen">
+      <div class="iframe-container" style="width: 100%; height: calc(100vh - 140px); overflow: hidden; border-radius: 8px;">
+        <iframe 
+          id="menu-iframe"
+          src="" 
+          style="width: 100%; height: 100%; border: none;"
+          title="Dispensary Live Menu">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- LOYALTY SCREEN -->
+    <section id="screen-loyalty" class="screen">
+      <div class="loyalty-card">
+        <h3>Welcome back!</h3>
+        <p class="subtext">You're earning greatness.</p>
+        <div class="points-display">
+          <span class="points-val">420</span>
+          <span class="points-lbl">Points</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" style="width: 70%;"></div></div>
+        <p class="progress-text">80 points until your next reward!</p>
+      </div>
+    </section>
+
+    <!-- LEARN SCREEN -->
+    <section id="screen-learn" class="screen">
+      <div class="learn-header">
+        <h2>Knowledge Elevates Your Experience</h2>
+        <p>Explore. Learn. Elevate.</p>
+      </div>
+      <div class="category-list" style="margin-top: 15px;">
+        <div class="category-item"><i class="fa-solid fa-book-open"></i> Strain Library <span>&rsaquo;</span></div>
+        <div class="category-item"><i class="fa-solid fa-seedling"></i> Terpenes Explained <span>&rsaquo;</span></div>
+        <div class="category-item"><i class="fa-solid fa-scale-balanced"></i> Indica vs Sativa vs Hybrid <span>&rsaquo;</span></div>
+      </div>
+    </section>
+
+    <!-- ACCOUNT SCREEN -->
+    <section id="screen-account" class="screen">
+      <div class="user-profile">
+        <i class="fa-solid fa-circle-user profile-avatar"></i>
+        <div>
+          <h3>Canna Culture Member</h3>
+          <span class="badge-verified"><i class="fa-solid fa-circle-check"></i> Age Verified (21+)</span>
+        </div>
+      </div>
+      <div class="category-list" style="margin-top: 15px;">
+        <div class="category-item" onclick="openLocationModal()"><i class="fa-solid fa-location-dot"></i> Switch Store Location <span>&rsaquo;</span></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Navigation Bar -->
+  <nav class="bottom-nav">
+    <button class="nav-btn active" onclick="switchTab('home')">
+      <i class="fa-solid fa-house"></i>
+      <span>Home</span>
+    </button>
+    <button class="nav-btn" onclick="switchTab('menu')">
+      <i class="fa-solid fa-store"></i>
+      <span>Menu</span>
+    </button>
+    <button class="nav-btn" onclick="switchTab('loyalty')">
+      <i class="fa-solid fa-award"></i>
+      <span>Loyalty</span>
+    </button>
+    <button class="nav-btn" onclick="switchTab('learn')">
+      <i class="fa-solid fa-lightbulb"></i>
+      <span>Learn</span>
+    </button>
+    <button class="nav-btn" onclick="switchTab('account')">
+      <i class="fa-solid fa-user"></i>
+      <span>Account</span>
+    </button>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+</html>

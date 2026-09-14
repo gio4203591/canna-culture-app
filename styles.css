@@ -1,0 +1,267 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background-color: #0b0f0c;
+  color: #ffffff;
+  padding-top: 60px;
+  padding-bottom: 70px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* Header & Navigation */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  height: 60px;
+  background-color: #121814;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-bottom: 1px solid #1f2a22;
+  z-index: 1000;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.brand-icon {
+  font-size: 1.4rem;
+}
+
+.brand-name {
+  font-size: 0.95rem;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+/* Location Selector Button Pill */
+.location-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #1a261c;
+  border: 1px solid #2e7d32;
+  color: #4caf50;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.location-btn .arrow-icon {
+  font-size: 0.65rem;
+  color: #81c784;
+}
+
+.cart-icon {
+  position: relative;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: #2e7d32;
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+/* Screen Structure */
+.screen {
+  display: none;
+  padding: 16px;
+}
+
+.screen.active {
+  display: block;
+}
+
+/* Modals & Overlays */
+.age-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.age-card {
+  background-color: #141c16;
+  border: 1px solid #2e7d32;
+  border-radius: 12px;
+  padding: 30px 20px;
+  text-align: center;
+  max-width: 360px;
+  width: 100%;
+}
+
+.age-card h2 {
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+}
+
+.age-card p {
+  color: #a0a0a0;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+/* Banners & Cards */
+.hero-banner {
+  background: linear-gradient(135deg, #18281b, #0b0f0c);
+  border: 1px solid #2e7d32;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.hero-banner h2 { font-size: 1.6rem; }
+.hero-banner p { color: #a0a0a0; margin-bottom: 16px; }
+
+.btn-primary {
+  background: #2e7d32;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.deal-card {
+  background: #141f17;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+  border-left: 4px solid #2e7d32;
+}
+
+.tag {
+  background: #2e7d32;
+  font-size: 0.65rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #2e7d32;
+  color: #4caf50;
+  padding: 8px 16px;
+  margin-top: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Product Display */
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.category-item {
+  background: #141c16;
+  padding: 14px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.product-card {
+  background: #141c16;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+}
+
+/* Loyalty & Account */
+.loyalty-card {
+  background: #142418;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.points-val { font-size: 2.5rem; font-weight: bold; color: #4caf50; }
+.progress-bar { background: #223326; height: 8px; border-radius: 4px; margin: 12px 0; }
+.progress-fill { background: #4caf50; height: 100%; border-radius: 4px; }
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: #141c16;
+  border-radius: 12px;
+}
+
+.profile-avatar { font-size: 2.5rem; color: #2e7d32; }
+.badge-verified { color: #4caf50; font-size: 0.8rem; }
+
+/* Bottom Nav Bar */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  height: 65px;
+  background-color: #121814;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid #1f2a22;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: #666;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.nav-btn.active { color: #4caf50; }
