@@ -103,4 +103,93 @@ document.addEventListener('DOMContentLoaded', () => {
   // Check saved location
   const savedLoc = localStorage.getItem('selectedLocation') || 'loc1';
   setLocation(savedLoc);
+});// Available Rewards Config
+const availableRewards = [
+  { id: 'r1', title: '$5 Off Storewide', cost: 100, code: 'SAVE5-CANNA' },
+  { id: 'r2', title: 'Free Pre-Roll with Order', cost: 250, code: 'PREROLL-FREE' },
+  { id: 'r3', title: '$20 Off Any Purchase', cost: 500, code: 'TAKE20-OFF' }
+];
+
+// Load points and claimed coupons from local storage
+let userPoints = parseInt(localStorage.getItem('userPoints')) || 420;
+let claimedCoupons = JSON.parse(localStorage.getItem('claimedCoupons')) || [];
+
+function renderLoyaltyScreen() {
+  // Update header points and progress bar
+  const pointsElem = document.getElementById('user-points');
+  if (pointsElem) pointsElem.innerText = userPoints;
+
+  const maxTier = 500;
+  const progressPercent = Math.min((userPoints / maxTier) * 100, 100);
+  
+  const fillElem = document.getElementById('loyalty-progress-fill');
+  if (fillElem) fillElem.style.width = `${progressPercent}%`;
+
+  const textElem = document.getElementById('loyalty-progress-text');
+  if (textElem) {
+    textElem.innerText = userPoints >= maxTier 
+      ? "You've unlocked maximum tier status!" 
+      : `${maxTier - userPoints} points until $20 reward!`;
+  }
+
+  // Render Available Rewards
+  const rewardsContainer = document.getElementById('rewards-list');
+  if (rewardsContainer) {
+    rewardsContainer.innerHTML = availableRewards.map(reward => {
+      const canAfford = userPoints >= reward.cost;
+      return `
+        <div class="reward-card">
+          <div class="reward-info">
+            <h4>${reward.title}</h4>
+            <span class="reward-cost">${reward.cost} Points</span>
+          </div>
+          <button class="btn-claim" 
+            ${canAfford ? '' : 'disabled'} 
+            onclick="claimReward('${reward.id}')">
+            ${canAfford ? 'Redeem' : 'Need More'}
+          </button>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // Render Claimed Active Coupons
+  const couponsContainer = document.getElementById('active-coupons-list');
+  if (couponsContainer) {
+    if (claimedCoupons.length === 0) {
+      couponsContainer.innerHTML = `<p style="color: #666; font-size: 0.85rem;">No active coupons yet. Redeem points above!</p>`;
+    } else {
+      couponsContainer.innerHTML = claimedCoupons.map(coupon => `
+        <div class="coupon-card">
+          <div>
+            <div style="font-size: 0.85rem; font-weight: bold;">${coupon.title}</div>
+            <div class="coupon-code">${coupon.code}</div>
+          </div>
+          <span style="font-size: 0.75rem; color: #4caf50;">Ready to Use</span>
+        </div>
+      `).join('');
+    }
+  }
+}
+
+// Redeem Reward Function
+function claimReward(rewardId) {
+  const reward = availableRewards.find(r => r.id === rewardId);
+  if (!reward || userPoints < reward.cost) return;
+
+  // Deduct points and save code
+  userPoints -= reward.cost;
+  claimedCoupons.push({ title: reward.title, code: reward.code });
+
+  // Save to LocalStorage
+  localStorage.setItem('userPoints', userPoints);
+  localStorage.setItem('claimedCoupons', JSON.stringify(claimedCoupons));
+
+  // Re-render display
+  renderLoyaltyScreen();
+}
+
+// Make sure renderLoyaltyScreen is called during tab switch or startup
+document.addEventListener('DOMContentLoaded', () => {
+  renderLoyaltyScreen();
 });

@@ -98,14 +98,33 @@
     <!-- LOYALTY SCREEN -->
     <section id="screen-loyalty" class="screen">
       <div class="loyalty-card">
-        <h3>Welcome back!</h3>
-        <p class="subtext">You're earning greatness.</p>
+        <h3>Member Rewards</h3>
+        <p class="subtext">Earn 1 point for every $1 spent.</p>
         <div class="points-display">
-          <span class="points-val">420</span>
+          <span class="points-val" id="user-points">420</span>
           <span class="points-lbl">Points</span>
         </div>
-        <div class="progress-bar"><div class="progress-fill" style="width: 70%;"></div></div>
-        <p class="progress-text">80 points until your next reward!</p>
+        <div class="progress-bar">
+          <div class="progress-fill" id="loyalty-progress-fill" style="width: 84%;"></div>
+        </div>
+        <p class="progress-text" id="loyalty-progress-text">80 points until next tier reward!</p>
+      </div>
+
+      <div class="section-header" style="margin-top: 20px; margin-bottom: 12px;">
+        <h3>Available Rewards</h3>
+      </div>
+
+      <!-- Redeemable Coupons List -->
+      <div id="rewards-list" class="rewards-grid">
+        <!-- Rendered dynamically via JS -->
+      </div>
+
+      <div class="section-header" style="margin-top: 24px; margin-bottom: 12px;">
+        <h3>Your Active Coupons</h3>
+      </div>
+
+      <div id="active-coupons-list" class="active-coupons-container">
+        <!-- Claimed coupons rendered dynamically via JS -->
       </div>
     </section>
 

@@ -1,0 +1,16 @@
+{
+  "short_name": "CannaCulture",
+  "name": "Canna Culture Dispensary",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3014/3014288.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "./index.html",
+  "background_color": "#0b0f0c",
+  "theme_color": "#121814",
+  "display": "standalone",
+  "orientation": "portrait"
+}
