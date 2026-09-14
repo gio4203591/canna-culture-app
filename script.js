@@ -398,4 +398,32 @@ function setLocation(locKey) {
   if (typeof renderAccountScreen === 'function') {
     renderAccountScreen();
   }
+}// Tab Switching Handler
+function switchTab(tabId) {
+  // Hide all screens
+  document.querySelectorAll('.screen').forEach(screen => {
+    screen.classList.remove('active');
+  });
+
+  // Remove active state from all bottom nav buttons
+  document.querySelectorAll('.nav-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  // Activate selected screen
+  const targetScreen = document.getElementById(`screen-${tabId}`);
+  if (targetScreen) {
+    targetScreen.classList.add('active');
+  }
+
+  // Highlight active nav button
+  const activeBtn = document.querySelector(`.nav-btn[onclick="switchTab('${tabId}')"]`);
+  if (activeBtn) {
+    activeBtn.classList.add('active');
+  }
+
+  // Trigger screen specific renders if applicable
+  if (tabId === 'loyalty') renderLoyaltyScreen();
+  if (tabId === 'learn') renderLearnScreen();
+  if (tabId === 'account') renderAccountScreen();
 }

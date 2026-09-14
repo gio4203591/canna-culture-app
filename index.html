@@ -10,27 +10,29 @@
 </head>
 <body>
 
-  <!-- Top Bar with Location Selector Button -->
+  <!-- Top Bar -->
   <header class="top-bar">
     <div class="brand">
       <i class="fa-solid fa-cannabis brand-icon"></i>
       <span class="brand-name">Canna Culture</span>
     </div>
 
-    <!-- Explicit Location Selector Button -->
     <button class="location-btn" onclick="openLocationModal()">
       <i class="fa-solid fa-location-dot"></i>
       <span id="current-location-name">Charter Park</span>
       <i class="fa-solid fa-chevron-down arrow-icon"></i>
     </button>
 
-    <div class="cart-icon">
-      <i class="fa-solid fa-cart-shopping"></i>
-      <span class="cart-badge" id="cart-count">0</span>
+    <div class="top-utilities">
+      <i class="fa-regular fa-bell utility-icon"></i>
+      <div class="cart-icon">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="cart-badge" id="cart-count">0</span>
+      </div>
     </div>
   </header>
 
-  <!-- 21+ Age Verification Modal -->
+  <!-- Modals -->
   <div id="age-modal" class="age-overlay">
     <div class="age-card">
       <i class="fa-solid fa-cannabis" style="font-size: 3rem; color: #2e7d32; margin-bottom: 12px;"></i>
@@ -43,7 +45,6 @@
     </div>
   </div>
 
-  <!-- Location Selection Modal -->
   <div id="location-modal" class="age-overlay" style="display: none;">
     <div class="age-card">
       <i class="fa-solid fa-store" style="font-size: 2.5rem; color: #2e7d32; margin-bottom: 12px;"></i>
@@ -56,7 +57,7 @@
     </div>
   </div>
 
-  <!-- Main Content Screens -->
+  <!-- App Content Screens -->
   <main id="app-content">
 
     <!-- HOME SCREEN -->
@@ -71,19 +72,18 @@
         <span class="tag">DAILY DEAL</span>
         <h3>20% OFF</h3>
         <p>Select Flower Today Only</p>
-        <button class="btn-outline" onclick="switchTab('menu')">VIEW DEALS</button>
+        <button class="btn-outline" onclick="switchTab('deals')">VIEW DEALS</button>
       </div>
 
       <div class="section-header">
         <h3>Featured Products</h3>
+        <span class="see-all-link" onclick="switchTab('menu')">See All</span>
       </div>
 
-      <div class="product-grid" id="featured-products">
-        <!-- Products populated by JS -->
-      </div>
+      <div class="product-grid" id="featured-products"></div>
     </section>
 
-    <!-- MENU SCREEN (Jane Embedded Live Menu) -->
+    <!-- MENU SCREEN -->
     <section id="screen-menu" class="screen">
       <div class="iframe-container" style="width: 100%; height: calc(100vh - 140px); overflow: hidden; border-radius: 8px;">
         <iframe 
@@ -91,17 +91,43 @@
           src="" 
           style="width: 100%; height: 100%; border: none;"
           title="Jane Dispensary Live Menu"
-          allow="geolocation; camera; payment"
-          sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-same-origin">
+          allow="geolocation; camera; payment">
         </iframe>
+      </div>
+    </section>
+
+    <!-- DEALS SCREEN -->
+    <section id="screen-deals" class="screen">
+      <div class="screen-title-bar">
+        <h2>Deals & Specials</h2>
+      </div>
+      <div class="filter-tabs">
+        <button class="filter-btn active">All Deals</button>
+        <button class="filter-btn">Daily Deals</button>
+        <button class="filter-btn">Happy Hour</button>
+        <button class="filter-btn">App-Only</button>
+      </div>
+      <div class="app-deal-banner">
+        <div class="deal-info">
+          <span class="badge-gold">APP-ONLY DEAL</span>
+          <h3>25% OFF</h3>
+          <p>Select Concentrates</p>
+          <button class="btn-primary-sm" onclick="switchTab('menu')">SHOP NOW</button>
+        </div>
+      </div>
+      <div class="list-rows-group">
+        <div class="list-row"><i class="fa-regular fa-clock"></i> <div><h4>Daily Deals</h4><p>New deals every day</p></div> <i class="fa-solid fa-chevron-right arrow"></i></div>
+        <div class="list-row"><i class="fa-solid fa-wine-glass"></i> <div><h4>Happy Hour</h4><p>Specials for a limited time</p></div> <i class="fa-solid fa-chevron-right arrow"></i></div>
+        <div class="list-row"><i class="fa-solid fa-mobile-screen"></i> <div><h4>App-Only Deals</h4><p>Exclusive savings for you</p></div> <i class="fa-solid fa-chevron-right arrow"></i></div>
+        <div class="list-row"><i class="fa-solid fa-tag"></i> <div><h4>Clearance</h4><p>Last call deals</p></div> <i class="fa-solid fa-chevron-right arrow"></i></div>
       </div>
     </section>
 
     <!-- LOYALTY SCREEN -->
     <section id="screen-loyalty" class="screen">
       <div class="loyalty-card">
-        <h3>Member Rewards</h3>
-        <p class="subtext">Earn 1 point for every $1 spent.</p>
+        <h3>Welcome back!</h3>
+        <p class="subtext">You're earning greatness.</p>
         <div class="points-display">
           <span class="points-val" id="user-points">420</span>
           <span class="points-lbl">Points</span>
@@ -115,29 +141,21 @@
       <div class="section-header" style="margin-top: 20px; margin-bottom: 12px;">
         <h3>Available Rewards</h3>
       </div>
-
-      <!-- Redeemable Coupons List -->
-      <div id="rewards-list" class="rewards-grid">
-        <!-- Rendered dynamically via JS -->
-      </div>
+      <div id="rewards-list" class="rewards-grid"></div>
 
       <div class="section-header" style="margin-top: 24px; margin-bottom: 12px;">
         <h3>Your Active Coupons</h3>
       </div>
-
-      <div id="active-coupons-list" class="active-coupons-container">
-        <!-- Claimed coupons rendered dynamically via JS -->
-      </div>
+      <div id="active-coupons-list" class="active-coupons-container"></div>
     </section>
 
     <!-- LEARN SCREEN -->
     <section id="screen-learn" class="screen">
       <div class="learn-header">
-        <h2>Cannabis Education</h2>
-        <p style="color: #a0a0a0; font-size: 0.85rem; margin-top: 4px;">Explore strains, effects, and terpene profiles.</p>
+        <h2>Knowledge Elevates Your Experience</h2>
+        <p style="color: #a0a0a0; font-size: 0.85rem; margin-top: 4px;">Explore. Learn. Elevate.</p>
       </div>
 
-      <!-- Strain Category Filter Buttons -->
       <div class="filter-tabs" style="display: flex; gap: 8px; margin: 16px 0;">
         <button class="filter-btn active" onclick="filterStrains('all', this)">All</button>
         <button class="filter-btn" onclick="filterStrains('indica', this)">Indica</button>
@@ -145,23 +163,31 @@
         <button class="filter-btn" onclick="filterStrains('hybrid', this)">Hybrid</button>
       </div>
 
-      <!-- Dynamic Strain Cards Grid -->
-      <div id="strain-grid" class="strain-grid">
-        <!-- Rendered dynamically via JS -->
-      </div>
+      <div id="strain-grid" class="strain-grid"></div>
 
-      <!-- Terpenes Section -->
       <div class="section-header" style="margin-top: 28px; margin-bottom: 12px;">
         <h3>Terpenes Guide</h3>
       </div>
-      <div id="terpene-list" class="terpene-grid">
-        <!-- Rendered dynamically via JS -->
+      <div id="terpene-list" class="terpene-grid"></div>
+    </section>
+
+    <!-- IN-HOUSE SCREEN -->
+    <section id="screen-inhouse" class="screen">
+      <div class="inhouse-hero">
+        <h2>Grown By Us.<br>Made For You.</h2>
+        <p>Premium in-house cannabis you won't find anywhere else.</p>
+        <button class="btn-primary" onclick="switchTab('menu')">SHOP IN-HOUSE</button>
+      </div>
+      <div class="list-rows-group">
+        <div class="list-row"><i class="fa-solid fa-seedling"></i> <div><h4>In-House Flower</h4><p>Grown with care</p></div> <i class="fa-solid fa-chevron-right arrow"></i></div>
+        <div class="list-row"><i class="fa-solid fa-joint"></i> <div><h4>In-House Pre-Rolls</h4><p>Crafted by us</p></div> <i class="fa-solid fa-chevron-right arrow"></i></div>
+        <div class="list-row"><i class="fa-solid fa-fire"></i> <div><h4>Limited Drops</h4><p>Exclusive & limited</p></div> <i class="fa-solid fa-chevron-right arrow"></i></div>
+        <div class="list-row"><i class="fa-solid fa-leaf"></i> <div><h4>Grower's Picks</h4><p>Hand selected for you</p></div> <i class="fa-solid fa-chevron-right arrow"></i></div>
       </div>
     </section>
 
     <!-- ACCOUNT SCREEN -->
     <section id="screen-account" class="screen">
-      <!-- Profile Header -->
       <div class="user-profile">
         <i class="fa-solid fa-circle-user profile-avatar"></i>
         <div>
@@ -170,50 +196,48 @@
         </div>
       </div>
 
-      <!-- Store Locations & Hours -->
       <div class="section-header" style="margin-top: 24px; margin-bottom: 12px;">
         <h3>Dispensary Locations</h3>
       </div>
-      <div id="account-store-list" class="store-details-list">
-        <!-- Store info rendered dynamically via JS -->
-      </div>
+      <div id="account-store-list" class="store-details-list"></div>
 
-      <!-- Recent Order History -->
       <div class="section-header" style="margin-top: 24px; margin-bottom: 12px;">
         <h3>Order History</h3>
       </div>
-      <div id="order-history-list" class="order-history-container">
-        <!-- Orders rendered dynamically via JS -->
-      </div>
+      <div id="order-history-list" class="order-history-container"></div>
     </section>
 
   </main>
 
-  <!-- Bottom Navigation Bar -->
+  <!-- Bottom Navigation Bar (6-Tab Layout) -->
   <nav class="bottom-nav">
     <button class="nav-btn active" onclick="switchTab('home')">
-      <i class="fa-solid fa-house"></i>
-      <span>Home</span>
-    </button>
-    <button class="nav-btn" onclick="switchTab('menu')">
-      <i class="fa-solid fa-store"></i>
+      <i class="fa-solid fa-cannabis"></i>
       <span>Menu</span>
     </button>
+    <button class="nav-btn" onclick="switchTab('deals')">
+      <i class="fa-solid fa-tag"></i>
+      <span>Deals</span>
+    </button>
     <button class="nav-btn" onclick="switchTab('loyalty')">
-      <i class="fa-solid fa-award"></i>
+      <i class="fa-regular fa-heart"></i>
       <span>Loyalty</span>
     </button>
     <button class="nav-btn" onclick="switchTab('learn')">
       <i class="fa-solid fa-lightbulb"></i>
       <span>Learn</span>
     </button>
+    <button class="nav-btn" onclick="switchTab('inhouse')">
+      <i class="fa-solid fa-shield-halved"></i>
+      <span>In-House</span>
+    </button>
     <button class="nav-btn" onclick="switchTab('account')">
-      <i class="fa-solid fa-user"></i>
+      <i class="fa-regular fa-user"></i>
       <span>Account</span>
     </button>
   </nav>
 
-  <!-- Mobile PWA Install Banner -->
+  <!-- PWA Install Banner -->
   <div id="pwa-install-banner" class="install-banner" style="display: none;">
     <div class="install-content">
       <i class="fa-solid fa-cannabis install-icon"></i>
