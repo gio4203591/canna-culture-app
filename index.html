@@ -159,15 +159,29 @@
 
     <!-- ACCOUNT SCREEN -->
     <section id="screen-account" class="screen">
+      <!-- Profile Header -->
       <div class="user-profile">
         <i class="fa-solid fa-circle-user profile-avatar"></i>
         <div>
-          <h3>Canna Culture Member</h3>
+          <h3 id="user-profile-name">Canna Culture Member</h3>
           <span class="badge-verified"><i class="fa-solid fa-circle-check"></i> Age Verified (21+)</span>
         </div>
       </div>
-      <div class="category-list" style="margin-top: 15px;">
-        <div class="category-item" onclick="openLocationModal()"><i class="fa-solid fa-location-dot"></i> Switch Store Location <span>&rsaquo;</span></div>
+
+      <!-- Store Locations & Hours -->
+      <div class="section-header" style="margin-top: 24px; margin-bottom: 12px;">
+        <h3>Dispensary Locations</h3>
+      </div>
+      <div id="account-store-list" class="store-details-list">
+        <!-- Store info rendered dynamically via JS -->
+      </div>
+
+      <!-- Recent Order History -->
+      <div class="section-header" style="margin-top: 24px; margin-bottom: 12px;">
+        <h3>Order History</h3>
+      </div>
+      <div id="order-history-list" class="order-history-container">
+        <!-- Orders rendered dynamically via JS -->
       </div>
     </section>
 

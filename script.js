@@ -249,4 +249,84 @@ function filterStrains(type, btnElement) {
 // Hook into initial page load
 document.addEventListener('DOMContentLoaded', () => {
   renderLearnScreen();
+});// Store Data Config
+const storeLocations = [
+  {
+    name: "Charter Park",
+    address: "123 Charter Park Way",
+    hours: "9:00 AM - 9:00 PM Daily",
+    phone: "(555) 019-2831",
+    key: "loc1"
+  },
+  {
+    name: "Midtown",
+    address: "456 Midtown Blvd",
+    hours: "8:00 AM - 10:00 PM Daily",
+    phone: "(555) 019-4820",
+    key: "loc2"
+  }
+];
+
+// Sample Order History
+const orderHistoryData = [
+  {
+    id: "CC-9021",
+    date: "Sep 12, 2026",
+    location: "Charter Park",
+    items: "Gelato #33 (3.5g), Sour Diesel Cart",
+    total: "$80.00",
+    status: "Completed"
+  },
+  {
+    id: "CC-8410",
+    date: "Aug 28, 2026",
+    location: "Midtown",
+    items: "Gummy Bears 100mg",
+    total: "$20.00",
+    status: "Completed"
+  }
+];
+
+function renderAccountScreen() {
+  // Render Locations
+  const storeContainer = document.getElementById('account-store-list');
+  if (storeContainer) {
+    const currentLoc = localStorage.getItem('selectedLocation') || 'loc1';
+    storeContainer.innerHTML = storeLocations.map(s => `
+      <div class="store-info-card" style="${s.key === currentLoc ? 'border-color: #2e7d32;' : ''}">
+        <div class="store-info-header">
+          <h4>${s.name} ${s.key === currentLoc ? '<span style="font-size:0.7rem; color:#81c784;">(Selected)</span>' : ''}</h4>
+          <button class="btn-outline" style="padding:4px 10px; font-size:0.75rem; margin-top:0;" onclick="setLocation('${s.key}')">
+            ${s.key === currentLoc ? 'Active' : 'Select'}
+          </button>
+        </div>
+        <p><i class="fa-solid fa-location-dot" style="color:#2e7d32;"></i> ${s.address}</p>
+        <p><i class="fa-solid fa-clock" style="color:#2e7d32;"></i> ${s.hours}</p>
+        <p><i class="fa-solid fa-phone" style="color:#2e7d32;"></i> ${s.phone}</p>
+      </div>
+    `).join('');
+  }
+
+  // Render Orders
+  const orderContainer = document.getElementById('order-history-list');
+  if (orderContainer) {
+    orderContainer.innerHTML = orderHistoryData.map(o => `
+      <div class="order-card">
+        <div class="order-header">
+          <span>Order ${o.id}</span>
+          <span class="order-status">${o.status}</span>
+        </div>
+        <div style="font-size:0.75rem; color:#666;">${o.date} • ${o.location}</div>
+        <div class="order-items">${o.items}</div>
+        <div style="text-align:right; font-weight:bold; color:#81c784; font-size:0.85rem; margin-top:6px;">
+          Total: ${o.total}
+        </div>
+      </div>
+    `).join('');
+  }
+}
+
+// Hook into load and tab switching
+document.addEventListener('DOMContentLoaded', () => {
+  renderAccountScreen();
 });
