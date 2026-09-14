@@ -83,14 +83,16 @@
       </div>
     </section>
 
-    <!-- MENU SCREEN (Embedded Live Menu) -->
+    <!-- MENU SCREEN (Jane Embedded Live Menu) -->
     <section id="screen-menu" class="screen">
       <div class="iframe-container" style="width: 100%; height: calc(100vh - 140px); overflow: hidden; border-radius: 8px;">
         <iframe 
           id="menu-iframe"
           src="" 
           style="width: 100%; height: 100%; border: none;"
-          title="Dispensary Live Menu">
+          title="Jane Dispensary Live Menu"
+          allow="geolocation; camera; payment"
+          sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-same-origin">
         </iframe>
       </div>
     </section>
@@ -210,6 +212,21 @@
       <span>Account</span>
     </button>
   </nav>
+
+  <!-- Mobile PWA Install Banner -->
+  <div id="pwa-install-banner" class="install-banner" style="display: none;">
+    <div class="install-content">
+      <i class="fa-solid fa-cannabis install-icon"></i>
+      <div class="install-text">
+        <h4>Install Canna Culture</h4>
+        <p>Add to home screen for quick orders & rewards</p>
+      </div>
+    </div>
+    <div class="install-actions">
+      <button class="btn-primary" onclick="triggerPWAInstall()">Install</button>
+      <button class="btn-close" onclick="dismissPWAInstall()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

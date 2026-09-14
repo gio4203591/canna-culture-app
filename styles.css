@@ -466,4 +466,58 @@ body {
   padding: 2px 8px;
   border-radius: 4px;
   font-size: 0.75rem;
+}/* PWA Install Banner Styling */
+.install-banner {
+  position: fixed;
+  bottom: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 448px;
+  background: #142418;
+  border: 1px solid #2e7d32;
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
+
+.install-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.install-icon {
+  font-size: 1.8rem;
+  color: #4caf50;
+}
+
+.install-text h4 {
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+.install-text p {
+  font-size: 0.75rem;
+  color: #a0a0a0;
+  margin-top: 2px;
+}
+
+.install-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 4px;
 }

@@ -329,4 +329,73 @@ function renderAccountScreen() {
 // Hook into load and tab switching
 document.addEventListener('DOMContentLoaded', () => {
   renderAccountScreen();
+});// PWA Installation Handler
+let deferredPrompt = null;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevent Chrome 67 and earlier from automatically showing the prompt
+  e.preventDefault();
+  
+  // Stash the event so it can be triggered later
+  deferredPrompt = e;
+
+  // Check if the user has previously dismissed the banner
+  if (!localStorage.getItem('pwaBannerDismissed')) {
+    const banner = document.getElementById('pwa-install-banner');
+    if (banner) banner.style.display = 'flex';
+  }
 });
+
+function triggerPWAInstall() {
+  const banner = document.getElementById('pwa-install-banner');
+  if (banner) banner.style.display = 'none';
+
+  if (!deferredPrompt) return;
+
+  // Show the native browser install prompt
+  deferredPrompt.prompt();
+
+  // Wait for the user to respond to the prompt
+  deferredPrompt.userChoice.then((choiceResult) => {
+    if (choiceResult.outcome === 'accepted') {
+      console.log('User accepted the PWA install prompt');
+    }
+    deferredPrompt = null;
+  });
+}
+
+function dismissPWAInstall() {
+  const banner = document.getElementById('pwa-install-banner');
+  if (banner) banner.style.display = 'none';
+  // Remember user choice so banner doesn't keep appearing
+  localStorage.setItem('pwaBannerDismissed', 'true');
+}// Function to handle switching locations and updating Jane embed URL
+function setLocation(locKey) {
+  if (!locationMenus[locKey]) return;
+
+  // Save selected location
+  localStorage.setItem('selectedLocation', locKey);
+
+  // Update Top Bar location text
+  const locationLabel = document.getElementById('current-location-name');
+  if (locationLabel) {
+    locationLabel.innerText = locationMenus[locKey].name;
+  }
+
+  // Update Jane iFrame Source
+  const iframe = document.getElementById('menu-iframe');
+  if (iframe) {
+    iframe.src = locationMenus[locKey].url;
+  }
+
+  // Close modal if open
+  const modal = document.getElementById('location-modal');
+  if (modal) {
+    modal.style.display = 'none';
+  }
+
+  // Refresh Account screen active badge if loaded
+  if (typeof renderAccountScreen === 'function') {
+    renderAccountScreen();
+  }
+}
