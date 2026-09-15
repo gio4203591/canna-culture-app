@@ -1174,4 +1174,203 @@ body.dark-theme .order-date,
 body.dark-theme .stat-label,
 body.dark-theme .category-subtext {
   color: #aaaaaa;
+}/* ==========================================
+   IN-HOUSE SCREEN STYLES
+   ========================================== */
+
+.inhouse-hero {
+  background: linear-gradient(135deg, #1b4332 0%, #2e7d32 100%);
+  color: #ffffff;
+  padding: 24px 18px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+
+.inhouse-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.inhouse-hero h2 {
+  font-size: 1.6rem;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.inhouse-hero p {
+  font-size: 0.82rem;
+  opacity: 0.9;
+  line-height: 1.4;
+}
+
+/* Perks Grid */
+.inhouse-perks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.perk-card {
+  background-color: #f4f6f4;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 10px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.perk-card span {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+.perk-icon {
+  font-size: 1.1rem;
+  color: #2e7d32;
+}
+
+/* In-House Product Cards */
+.inhouse-products-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.inhouse-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.inhouse-card-thumb {
+  width: 110px;
+  min-width: 110px;
+  background-color: #f9f9f9;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.inhouse-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.batch-tag {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  background-color: #1a1a1a;
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.inhouse-card-body {
+  padding: 12px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-type {
+  font-size: 0.7rem;
+  color: #757575;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.inhouse-card-body h4 {
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  margin: 2px 0 6px 0;
+}
+
+.potency-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  margin-bottom: 6px;
+}
+
+.strain-type {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.strain-type.indica { background: #ede7f6; color: #512da8; }
+.strain-type.sativa { background: #fff3e0; color: #e65100; }
+.strain-type.hybrid { background: #e8f5e9; color: #2e7d32; }
+
+.flavor-notes {
+  font-size: 0.72rem;
+  color: #616161;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.inhouse-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.inhouse-card-footer .price {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.inhouse-card-footer .price small {
+  font-size: 0.7rem;
+  color: #757575;
+  font-weight: 400;
+}
+
+/* Dark Mode Overrides for In-House Screen */
+body.dark-theme .perk-card,
+body.dark-theme .inhouse-card {
+  background-color: #242424;
+  border-color: #333333;
+}
+
+body.dark-theme .inhouse-card-thumb {
+  background-color: #1f1f1f;
+}
+
+body.dark-theme .inhouse-card-body h4,
+body.dark-theme .inhouse-card-footer .price {
+  color: #ffffff;
+}
+
+body.dark-theme .flavor-notes {
+  color: #aaaaaa;
 }

@@ -222,12 +222,111 @@
       </section>
 
       <!-- IN-HOUSE SCREEN -->
-      <section id="screen-inhouse" class="screen">
-        <div class="hero-banner">
-          <h2>Grown By Us.<br>Made For You.</h2>
-          <button class="btn-primary" onclick="switchTab('menu')">SHOP IN-HOUSE</button>
+<section id="screen-inhouse" class="screen">
+  
+  <!-- In-House Hero Header -->
+  <div class="inhouse-hero">
+    <span class="inhouse-badge"><i class="fa-solid fa-award"></i> Signature Collection</span>
+    <h2>Grown By Us.<br>Made For You.</h2>
+    <p>Hand-crafted in small batches, pesticide-free, and cultivated locally in our state-of-the-art facilities.</p>
+  </div>
+
+  <!-- Quality Guarantee Badges -->
+  <div class="inhouse-perks-grid">
+    <div class="perk-card">
+      <i class="fa-solid fa-seedling perk-icon"></i>
+      <span>Indoor Grown</span>
+    </div>
+    <div class="perk-card">
+      <i class="fa-solid fa-flask perk-icon"></i>
+      <span>100% Lab Tested</span>
+    </div>
+    <div class="perk-card">
+      <i class="fa-solid fa-scissors perk-icon"></i>
+      <span>Hand Trimmed</span>
+    </div>
+  </div>
+
+  <!-- In-House Product Showcase -->
+  <div class="section-header" style="margin-top: 20px;">
+    <h3>Featured In-House Drops</h3>
+    <span class="see-all-link" onclick="switchTab('menu')">View All</span>
+  </div>
+
+  <div class="inhouse-products-grid">
+    
+    <!-- Product 1 -->
+    <div class="inhouse-card">
+      <div class="inhouse-card-thumb">
+        <img src="flower.png" alt="Canna Culture Reserve Flower">
+        <span class="batch-tag">Batch #402</span>
+      </div>
+      <div class="inhouse-card-body">
+        <span class="product-type">Reserve Flower</span>
+        <h4>Culture OG Kush</h4>
+        <div class="potency-row">
+          <span>THC: <strong>31.4%</strong></span>
+          <span class="strain-type indica">Indica</span>
         </div>
-      </section>
+        <p class="flavor-notes">Notes: Earthy pine, diesel, sweet citrus</p>
+        <div class="inhouse-card-footer">
+          <span class="price">$50.00 <small>/ 3.5g</small></span>
+          <button class="btn-primary btn-sm" onclick="addToCart('Culture OG Kush')">
+            <i class="fa-solid fa-plus"></i> Add
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="inhouse-card">
+      <div class="inhouse-card-thumb">
+        <img src="concentrates.png" alt="Solventless Live Rosin">
+        <span class="batch-tag">Solventless</span>
+      </div>
+      <div class="inhouse-card-body">
+        <span class="product-type">Live Rosin</span>
+        <h4>Guava Hash Rosin</h4>
+        <div class="potency-row">
+          <span>THC: <strong>78.2%</strong></span>
+          <span class="strain-type hybrid">Hybrid</span>
+        </div>
+        <p class="flavor-notes">Notes: Tropical guava, cream, gas</p>
+        <div class="inhouse-card-footer">
+          <span class="price">$65.00 <small>/ 1g</small></span>
+          <button class="btn-primary btn-sm" onclick="addToCart('Guava Hash Rosin')">
+            <i class="fa-solid fa-plus"></i> Add
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="inhouse-card">
+      <div class="inhouse-card-thumb">
+        <img src="prerolls.png" alt="Infused Pre-Roll 5-Pack">
+        <span class="batch-tag">Hand Rolled</span>
+      </div>
+      <div class="inhouse-card-body">
+        <span class="product-type">Infused Pre-Rolls</span>
+        <h4>Diamond Infused Pack</h4>
+        <div class="potency-row">
+          <span>THC: <strong>42.0%</strong></span>
+          <span class="strain-type sativa">Sativa</span>
+        </div>
+        <p class="flavor-notes">Notes: Lemon haze, berries, sharp terpene kick</p>
+        <div class="inhouse-card-footer">
+          <span class="price">$40.00 <small>/ 2.5g total</small></span>
+          <button class="btn-primary btn-sm" onclick="addToCart('Diamond Infused Pack')">
+            <i class="fa-solid fa-plus"></i> Add
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
 
       <!-- ACCOUNT SCREEN -->
       <section id="screen-account" class="screen">
