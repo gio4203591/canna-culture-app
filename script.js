@@ -111,4 +111,107 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+});// Open Order History Modal
+function openAccountSection(section) {
+  if (section === 'orders') {
+    const ordersModal = document.getElementById('orders-modal');
+    if (ordersModal) {
+      ordersModal.style.display = 'flex';
+    }
+  }
+}
+
+// Close Order History Modal
+function closeOrdersModal() {
+  const ordersModal = document.getElementById('orders-modal');
+  if (ordersModal) {
+    ordersModal.style.display = 'none';
+  }
+}// Open Account Section Modals
+function openAccountSection(section) {
+  if (section === 'orders') {
+    const ordersModal = document.getElementById('orders-modal');
+    if (ordersModal) ordersModal.style.display = 'flex';
+  } else if (section === 'favorites') {
+    const favoritesModal = document.getElementById('favorites-modal');
+    if (favoritesModal) favoritesModal.style.display = 'flex';
+  }
+}
+
+// Close Favorites Modal
+function closeFavoritesModal() {
+  const favoritesModal = document.getElementById('favorites-modal');
+  if (favoritesModal) favoritesModal.style.display = 'none';
+}
+
+// Remove Item from Favorites
+function removeFavorite(buttonElement) {
+  const card = buttonElement.closest('.favorite-item-card');
+  if (card) {
+    card.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+    card.style.opacity = '0';
+    card.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      card.remove();
+      
+      // Check if list is empty
+      const container = document.getElementById('favorites-list-container');
+      if (container && container.children.length === 0) {
+        container.innerHTML = '<p style="text-align:center; color:#757575; padding:20px 0;">No saved favorites yet.</p>';
+      }
+    }, 200);
+  }
+}// Open Settings Modal inside openAccountSection router
+function openAccountSection(section) {
+  if (section === 'orders') {
+    document.getElementById('orders-modal').style.display = 'flex';
+  } else if (section === 'favorites') {
+    document.getElementById('favorites-modal').style.display = 'flex';
+  } else if (section === 'settings') {
+    document.getElementById('settings-modal').style.display = 'flex';
+  }
+}
+
+// Close Settings Modal
+function closeSettingsModal() {
+  document.getElementById('settings-modal').style.display = 'none';
+}
+
+// Save Notification Preferences to LocalStorage
+function saveSettings() {
+  const settings = {
+    dealsNotify: document.getElementById('toggle-deals-notify').checked,
+    ordersNotify: document.getElementById('toggle-orders-notify').checked,
+  };
+  localStorage.setItem('canna_app_settings', JSON.stringify(settings));
+}
+
+// Toggle Dark Mode
+function toggleDarkMode(isDark) {
+  document.body.classList.toggle('dark-theme', isDark);
+  localStorage.setItem('canna_dark_mode', isDark);
+}
+
+// Clear App Cache / Local Data
+function clearAppData() {
+  if (confirm("Are you sure you want to clear cached data? This will reset your favorites and settings.")) {
+    localStorage.clear();
+    alert("App data reset successfully.");
+    location.reload();
+  }
+}// Load saved dark mode state on page load
+document.addEventListener('DOMContentLoaded', () => {
+  const isDarkMode = localStorage.getItem('canna_dark_mode') === 'true';
+  const darkModeToggle = document.getElementById('toggle-dark-mode');
+  
+  if (isDarkMode) {
+    document.body.classList.add('dark-theme');
+    if (darkModeToggle) darkModeToggle.checked = true;
+  }
 });
+
+// Toggle Dark Mode Function
+function toggleDarkMode(isDark) {
+  document.body.classList.toggle('dark-theme', isDark);
+  localStorage.setItem('canna_dark_mode', isDark);
+}

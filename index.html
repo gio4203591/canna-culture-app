@@ -35,31 +35,6 @@
       </div>
     </header>
 
-    <!-- Modals -->
-    <div id="age-modal" class="age-overlay" style="display: none;">
-      <div class="age-card">
-        <i class="fa-solid fa-cannabis" style="font-size: 3rem; color: #2e7d32; margin-bottom: 12px;"></i>
-        <h2>Age Verification</h2>
-        <p>You must be 21 years of age or older to enter this app.</p>
-        <div class="age-buttons">
-          <button class="btn-primary" onclick="verifyAge(true)" style="width: 100%;">I am 21 or Older</button>
-          <button class="btn-outline" onclick="verifyAge(false)" style="width: 100%; margin-top: 8px;">I am Under 21</button>
-        </div>
-      </div>
-    </div>
-
-    <div id="location-modal" class="age-overlay" style="display: none;">
-      <div class="age-card">
-        <i class="fa-solid fa-store" style="font-size: 2.5rem; color: #2e7d32; margin-bottom: 12px;"></i>
-        <h2>Select Dispensary Location</h2>
-        <p>Choose a store location to load its live menu and details.</p>
-        <div class="location-buttons" style="display: flex; flex-direction: column; gap: 10px;">
-          <button class="btn-primary" onclick="setLocation('loc1')">Charter Park</button>
-          <button class="btn-primary" onclick="setLocation('loc2')">Midtown</button>
-        </div>
-      </div>
-    </div>
-
     <!-- App Content Screens -->
     <main id="app-content">
 
@@ -101,9 +76,12 @@
         <!-- Full-Width Light Category Rows -->
         <div class="category-list-light">
           
+          <!-- Flower Category Row -->
           <div class="category-row-light" onclick="filterByCategory('flower')">
             <div class="category-row-left">
-              <div class="category-icon-box"><i class="fa-solid fa-cannabis"></i></div>
+              <div class="category-icon-box">
+                <img src="flower.png" alt="Flower" class="category-thumb-img">
+              </div>
               <div class="category-text">
                 <span class="category-name">Flower</span>
                 <span class="category-subtext">Shop Flower</span>
@@ -112,7 +90,7 @@
             <i class="fa-solid fa-chevron-right category-arrow"></i>
           </div>
 
-          <!-- Pre-Rolls Category Row (Updated with real image) -->
+          <!-- Pre-Rolls Category Row -->
           <div class="category-row-light" onclick="filterByCategory('pre-rolls')">
             <div class="category-row-left">
               <div class="category-icon-box">
@@ -126,9 +104,12 @@
             <i class="fa-solid fa-chevron-right category-arrow"></i>
           </div>
 
+          <!-- Concentrates Category Row -->
           <div class="category-row-light" onclick="filterByCategory('concentrates')">
             <div class="category-row-left">
-              <div class="category-icon-box"><i class="fa-solid fa-fire"></i></div>
+              <div class="category-icon-box">
+                <img src="concentrates.png" alt="Concentrates" class="category-thumb-img">
+              </div>
               <div class="category-text">
                 <span class="category-name">Concentrates</span>
                 <span class="category-subtext">Shop Concentrates</span>
@@ -137,9 +118,12 @@
             <i class="fa-solid fa-chevron-right category-arrow"></i>
           </div>
 
+          <!-- Vapes Category Row -->
           <div class="category-row-light" onclick="filterByCategory('vapes')">
             <div class="category-row-left">
-              <div class="category-icon-box"><i class="fa-solid fa-cloud"></i></div>
+              <div class="category-icon-box">
+                <img src="vapes.png" alt="Vapes" class="category-thumb-img">
+              </div>
               <div class="category-text">
                 <span class="category-name">Vapes</span>
                 <span class="category-subtext">Shop Vapes</span>
@@ -148,9 +132,12 @@
             <i class="fa-solid fa-chevron-right category-arrow"></i>
           </div>
 
+          <!-- Edibles Category Row -->
           <div class="category-row-light" onclick="filterByCategory('edibles')">
             <div class="category-row-left">
-              <div class="category-icon-box"><i class="fa-solid fa-cookie-bite"></i></div>
+              <div class="category-icon-box">
+                <img src="edibles.png" alt="Edibles" class="category-thumb-img">
+              </div>
               <div class="category-text">
                 <span class="category-name">Edibles</span>
                 <span class="category-subtext">Shop Edibles</span>
@@ -159,9 +146,12 @@
             <i class="fa-solid fa-chevron-right category-arrow"></i>
           </div>
 
+          <!-- Tinctures & Topicals Category Row -->
           <div class="category-row-light" onclick="filterByCategory('topicals')">
             <div class="category-row-left">
-              <div class="category-icon-box"><i class="fa-solid fa-pump-soap"></i></div>
+              <div class="category-icon-box">
+                <img src="topicals.png" alt="Tinctures & Topicals" class="category-thumb-img">
+              </div>
               <div class="category-text">
                 <span class="category-name">Tinctures & Topicals</span>
                 <span class="category-subtext">Shop Tinctures & Topicals</span>
@@ -170,9 +160,12 @@
             <i class="fa-solid fa-chevron-right category-arrow"></i>
           </div>
 
+          <!-- Accessories Category Row -->
           <div class="category-row-light" onclick="filterByCategory('accessories')">
             <div class="category-row-left">
-              <div class="category-icon-box"><i class="fa-solid fa-boxes-packing"></i></div>
+              <div class="category-icon-box">
+                <img src="accessories.png" alt="Accessories" class="category-thumb-img">
+              </div>
               <div class="category-text">
                 <span class="category-name">Accessories</span>
                 <span class="category-subtext">Shop Accessories</span>
@@ -238,13 +231,75 @@
 
       <!-- ACCOUNT SCREEN -->
       <section id="screen-account" class="screen">
-        <div class="user-profile" style="display: flex; align-items: center; gap: 12px; padding: 12px 0;">
-          <i class="fa-solid fa-circle-user" style="font-size: 2.5rem; color: #2e7d32;"></i>
-          <div>
-            <h3 id="user-profile-name">Canna Culture Member</h3>
-            <span class="badge-verified" style="font-size: 0.75rem; color: #2e7d32;"><i class="fa-solid fa-circle-check"></i> Age Verified (21+)</span>
+        
+        <!-- Profile Summary Card -->
+        <div class="account-profile-card">
+          <div class="profile-avatar">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div class="profile-info">
+            <h3 id="user-profile-name">Jane Doe</h3>
+            <span class="member-tier"><i class="fa-solid fa-crown"></i> Gold Member</span>
+            <span class="badge-verified"><i class="fa-solid fa-circle-check"></i> Age Verified (21+)</span>
           </div>
         </div>
+
+        <!-- Account Quick Stats -->
+        <div class="account-stats-grid">
+          <div class="stat-box">
+            <span class="stat-value" id="account-points">420</span>
+            <span class="stat-label">Loyalty Points</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-value" id="account-orders-count">3</span>
+            <span class="stat-label">Total Orders</span>
+          </div>
+        </div>
+
+        <!-- Account Navigation Menu -->
+        <div class="account-menu-list">
+          
+          <div class="account-menu-item" onclick="openAccountSection('orders')">
+            <div class="menu-item-left">
+              <i class="fa-solid fa-clock-rotate-left menu-icon"></i>
+              <span>Order History</span>
+            </div>
+            <i class="fa-solid fa-chevron-right category-arrow"></i>
+          </div>
+
+          <div class="account-menu-item" onclick="openAccountSection('favorites')">
+            <div class="menu-item-left">
+              <i class="fa-solid fa-heart menu-icon"></i>
+              <span>Saved Favorites</span>
+            </div>
+            <i class="fa-solid fa-chevron-right category-arrow"></i>
+          </div>
+
+          <div class="account-menu-item" onclick="openAccountSection('settings')">
+            <div class="menu-item-left">
+              <i class="fa-solid fa-gear menu-icon"></i>
+              <span>App Settings & Privacy</span>
+            </div>
+            <i class="fa-solid fa-chevron-right category-arrow"></i>
+          </div>
+
+          <div class="account-menu-item" onclick="openLocationModal()">
+            <div class="menu-item-left">
+              <i class="fa-solid fa-store menu-icon"></i>
+              <span>Preferred Location</span>
+            </div>
+            <span class="menu-item-value" id="account-current-location">Charter Park</span>
+          </div>
+
+          <div class="account-menu-item" onclick="resetAppData()">
+            <div class="menu-item-left">
+              <i class="fa-solid fa-arrow-right-from-bracket menu-icon danger"></i>
+              <span class="danger">Reset App / Age Verification</span>
+            </div>
+          </div>
+
+        </div>
+
       </section>
 
     </main>
@@ -277,6 +332,254 @@
       </button>
     </nav>
 
+  </div>
+
+  <!-- MODALS OVERLAYS -->
+
+  <!-- Age Verification Modal -->
+  <div id="age-modal" class="age-overlay" style="display: none;">
+    <div class="age-card">
+      <i class="fa-solid fa-cannabis" style="font-size: 3rem; color: #2e7d32; margin-bottom: 12px;"></i>
+      <h2>Age Verification</h2>
+      <p>You must be 21 years of age or older to enter this app.</p>
+      <div class="age-buttons">
+        <button class="btn-primary" onclick="verifyAge(true)" style="width: 100%;">I am 21 or Older</button>
+        <button class="btn-outline" onclick="verifyAge(false)" style="width: 100%; margin-top: 8px;">I am Under 21</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Location Selector Modal -->
+  <div id="location-modal" class="age-overlay" style="display: none;">
+    <div class="age-card">
+      <i class="fa-solid fa-store" style="font-size: 2.5rem; color: #2e7d32; margin-bottom: 12px;"></i>
+      <h2>Select Dispensary Location</h2>
+      <p>Choose a store location to load its live menu and details.</p>
+      <div class="location-buttons" style="display: flex; flex-direction: column; gap: 10px;">
+        <button class="btn-primary" onclick="setLocation('loc1')">Charter Park</button>
+        <button class="btn-primary" onclick="setLocation('loc2')">Midtown</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order History Modal -->
+  <div id="orders-modal" class="age-overlay" style="display: none;">
+    <div class="modal-card orders-card">
+      
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-clock-rotate-left"></i> Order History</h3>
+        <button class="modal-close-btn" onclick="closeOrdersModal()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="orders-list" id="orders-list-container">
+        
+        <!-- Order Item 1 -->
+        <div class="order-card">
+          <div class="order-card-header">
+            <div>
+              <span class="order-id">#CC-8492</span>
+              <span class="order-date">Sep 12, 2026</span>
+            </div>
+            <span class="order-status status-ready">Ready for Pickup</span>
+          </div>
+          
+          <div class="order-items-preview">
+            <div class="order-item-row">
+              <span>1x Sour Diesel Flower (3.5g)</span>
+              <span>$45.00</span>
+            </div>
+            <div class="order-item-row">
+              <span>2x Mango Gummies (100mg)</span>
+              <span>$36.00</span>
+            </div>
+          </div>
+
+          <div class="order-card-footer">
+            <span class="order-location"><i class="fa-solid fa-store"></i> Charter Park</span>
+            <span class="order-total">Total: <strong>$81.00</strong></span>
+          </div>
+        </div>
+
+        <!-- Order Item 2 -->
+        <div class="order-card">
+          <div class="order-card-header">
+            <div>
+              <span class="order-id">#CC-7310</span>
+              <span class="order-date">Aug 28, 2026</span>
+            </div>
+            <span class="order-status status-completed">Completed</span>
+          </div>
+
+          <div class="order-items-preview">
+            <div class="order-item-row">
+              <span>1x Live Rosin Vape Cart (1g)</span>
+              <span>$55.00</span>
+            </div>
+          </div>
+
+          <div class="order-card-footer">
+            <span class="order-location"><i class="fa-solid fa-store"></i> Midtown</span>
+            <span class="order-total">Total: <strong>$55.00</strong></span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Saved Favorites Modal -->
+  <div id="favorites-modal" class="age-overlay" style="display: none;">
+    <div class="modal-card favorites-card">
+      
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-heart"></i> Saved Favorites</h3>
+        <button class="modal-close-btn" onclick="closeFavoritesModal()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="favorites-list" id="favorites-list-container">
+        
+        <!-- Favorite Item 1 -->
+        <div class="favorite-item-card">
+          <div class="favorite-item-left">
+            <div class="favorite-thumb-box">
+              <img src="flower.png" alt="Sour Diesel" class="favorite-thumb-img">
+            </div>
+            <div class="favorite-details">
+              <span class="favorite-title">Sour Diesel Flower</span>
+              <span class="favorite-category">Flower • 3.5g</span>
+              <span class="favorite-price">$45.00</span>
+            </div>
+          </div>
+          <div class="favorite-actions">
+            <button class="btn-primary btn-sm" onclick="addToCart('Sour Diesel')">
+              <i class="fa-solid fa-bag-shopping"></i> Add
+            </button>
+            <button class="favorite-remove-btn" onclick="removeFavorite(this)" title="Remove from favorites">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Favorite Item 2 -->
+        <div class="favorite-item-card">
+          <div class="favorite-item-left">
+            <div class="favorite-thumb-box">
+              <img src="concentrates.png" alt="Live Rosin" class="favorite-thumb-img">
+            </div>
+            <div class="favorite-details">
+              <span class="favorite-title">Blueberry Live Rosin</span>
+              <span class="favorite-category">Concentrates • 1g</span>
+              <span class="favorite-price">$55.00</span>
+            </div>
+          </div>
+          <div class="favorite-actions">
+            <button class="btn-primary btn-sm" onclick="addToCart('Blueberry Live Rosin')">
+              <i class="fa-solid fa-bag-shopping"></i> Add
+            </button>
+            <button class="favorite-remove-btn" onclick="removeFavorite(this)" title="Remove from favorites">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Favorite Item 3 -->
+        <div class="favorite-item-card">
+          <div class="favorite-item-left">
+            <div class="favorite-thumb-box">
+              <img src="edibles.png" alt="Mango Gummies" class="favorite-thumb-img">
+            </div>
+            <div class="favorite-details">
+              <span class="favorite-title">Mango Gummies 100mg</span>
+              <span class="favorite-category">Edibles • 10 pack</span>
+              <span class="favorite-price">$18.00</span>
+            </div>
+          </div>
+          <div class="favorite-actions">
+            <button class="btn-primary btn-sm" onclick="addToCart('Mango Gummies')">
+              <i class="fa-solid fa-bag-shopping"></i> Add
+            </button>
+            <button class="favorite-remove-btn" onclick="removeFavorite(this)" title="Remove from favorites">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- APP SETTINGS & PRIVACY MODAL -->
+  <div id="settings-modal" class="age-overlay" style="display: none;">
+    <div class="modal-card settings-card">
+      
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-gear"></i> Settings & Privacy</h3>
+        <button class="modal-close-btn" onclick="closeSettingsModal()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="settings-list">
+        
+        <!-- Section: Notifications -->
+        <div class="settings-group-title">NOTIFICATIONS</div>
+        
+        <div class="setting-item">
+          <div class="setting-text">
+            <span class="setting-title">Daily Deals & Drops</span>
+            <span class="setting-subtext">Get alerts on new products and daily sales</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggle-deals-notify" checked onchange="saveSettings()">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-text">
+            <span class="setting-title">Order Status Updates</span>
+            <span class="setting-subtext">SMS / Push alerts when orders are ready</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggle-orders-notify" checked onchange="saveSettings()">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <!-- Section: Preferences -->
+        <div class="settings-group-title">PREFERENCES</div>
+
+        <div class="setting-item">
+          <div class="setting-text">
+            <span class="setting-title">Dark Mode</span>
+            <span class="setting-subtext">Switch between light and dark themes</span>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggle-dark-mode" onchange="toggleDarkMode(this.checked)">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <!-- Section: Privacy & Data -->
+        <div class="settings-group-title">PRIVACY & DATA</div>
+
+        <div class="setting-item clickable" onclick="clearAppData()">
+          <div class="setting-text">
+            <span class="setting-title danger">Clear Cached App Data</span>
+            <span class="setting-subtext">Removes saved favorites and app preferences</span>
+          </div>
+          <i class="fa-solid fa-trash-can danger"></i>
+        </div>
+
+      </div>
+
+    </div>
   </div>
 
   <script src="script.js"></script>
