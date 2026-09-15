@@ -1,16 +1,56 @@
-{
-  "short_name": "CannaCulture",
-  "name": "Canna Culture Dispensary",
-  "icons": [
-    {
-      "src": "https://cdn-icons-png.flaticon.com/512/3014/3014288.png",
-      "type": "image/png",
-      "sizes": "512x512"
+[
+  {
+    "short_name": "CannaCulture",
+    "name": "Canna Culture Dispensary",
+    "icons": [
+      {
+        "src": "https://cdn-icons-png.flaticon.com/512/3014/3014288.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "./index.html",
+    "background_color": "#0b0f0c",
+    "theme_color": "#121814",
+    "display": "standalone",
+    "orientation": "portrait"
+  },
+  {
+    "destination": {
+      "address": {
+        "unparsed": "123 Main St, San Jose, CA 95112"
+      },
+      "notes": "Apt 4B - ring doorbell"
+    },
+    "recipients": [
+      {
+        "name": "Jane Doe",
+        "phone": "+14085550199"
+      }
+    ],
+    "autoAssign": { "mode": "distance" },
+    "metadata": [
+      {
+        "name": "appOrderId",
+        "type": "string",
+        "value": "CC-9102"
+      }
+    ]
+  },
+  {
+    "id": "3b29c011-8282-411a-ba2d",
+    "trackingURL": "https://onfleet.com/t/abc123xyz",
+    "state": 0
+  },
+  {
+    "trigger": 0,
+    "action": "taskStarted",
+    "taskId": "3b29c011-8282-411a-ba2d",
+    "data": {
+      "task": {
+        "trackingURL": "https://onfleet.com/t/abc123xyz",
+        "estimatedCompletionTime": 1726419600000
+      }
     }
-  ],
-  "start_url": "./index.html",
-  "background_color": "#0b0f0c",
-  "theme_color": "#121814",
-  "display": "standalone",
-  "orientation": "portrait"
-}
+  }
+]

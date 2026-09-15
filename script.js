@@ -1,4 +1,16 @@
-// Store Location Menu URLs
+// ==========================================
+// CONFIGURATION (BOOKMARKED FOR IT)
+// ==========================================
+// TODO: Replace 'https://onfleet.com/t/demo' with your backend API endpoint or live tracking URL when IT arrives
+const ONFLEET_BACKEND_URL = "https://onfleet.com/t/demo";
+
+// Function to update the delivery frame
+function updateDeliveryTrackingUrl(newUrl) {
+  const iframe = document.getElementById('onfleet-tracking-iframe');
+  if (iframe) {
+    iframe.src = newUrl || ONFLEET_BACKEND_URL;
+  }
+}// Store Location Menu URLs
 const STORE_URLS = {
   loc1: "https://cannaculturecollective.com/store-charter-park/",
   loc2: "https://cannaculturecollective.com/store-midtown/"
@@ -214,4 +226,41 @@ document.addEventListener('DOMContentLoaded', () => {
 function toggleDarkMode(isDark) {
   document.body.classList.toggle('dark-theme', isDark);
   localStorage.setItem('canna_dark_mode', isDark);
+}// Fetch tracking details from your backend database
+async function loadDeliveryTracking(orderId) {
+  const response = await fetch(`/api/orders/${orderId}`);
+  const orderData = await response.json();
+
+  // If tracking URL exists, update the iframe source
+  if (orderData.trackingURL) {
+    const iframe = document.getElementById('onfleet-tracking-iframe');
+    iframe.src = orderData.trackingURL;
+  }
+}function filterDeals(category, btnElement) {
+  // Reset tab button styling
+  const buttons = document.querySelectorAll('.deal-tab-btn');
+  buttons.forEach(btn => {
+    btn.style.background = '#f0f0f0';
+    btn.style.color = '#333';
+    btn.style.borderColor = '#ddd';
+    btn.classList.remove('active');
+  });
+
+  // Highlight selected tab
+  if (btnElement) {
+    btnElement.style.background = '#2e7d32';
+    btnElement.style.color = '#fff';
+    btnElement.style.borderColor = '#2e7d32';
+    btnElement.classList.add('active');
+  }
+
+  // Show/Hide deal cards
+  const cards = document.querySelectorAll('.deal-card-item');
+  cards.forEach(card => {
+    if (category === 'all' || card.classList.contains(`deal-group-${category}`)) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
 }

@@ -90,6 +90,20 @@
             <i class="fa-solid fa-chevron-right category-arrow"></i>
           </div>
 
+          <!-- Accessories Category Row (Moved under Flower) -->
+          <div class="category-row-light" onclick="filterByCategory('accessories')">
+            <div class="category-row-left">
+              <div class="category-icon-box">
+                <img src="accessories.png" alt="Accessories" class="category-thumb-img">
+              </div>
+              <div class="category-text">
+                <span class="category-name">Accessories</span>
+                <span class="category-subtext">Shop Accessories</span>
+              </div>
+            </div>
+            <i class="fa-solid fa-chevron-right category-arrow"></i>
+          </div>
+
           <!-- Pre-Rolls Category Row -->
           <div class="category-row-light" onclick="filterByCategory('pre-rolls')">
             <div class="category-row-left">
@@ -160,20 +174,6 @@
             <i class="fa-solid fa-chevron-right category-arrow"></i>
           </div>
 
-          <!-- Accessories Category Row -->
-          <div class="category-row-light" onclick="filterByCategory('accessories')">
-            <div class="category-row-left">
-              <div class="category-icon-box">
-                <img src="accessories.png" alt="Accessories" class="category-thumb-img">
-              </div>
-              <div class="category-text">
-                <span class="category-name">Accessories</span>
-                <span class="category-subtext">Shop Accessories</span>
-              </div>
-            </div>
-            <i class="fa-solid fa-chevron-right category-arrow"></i>
-          </div>
-
         </div>
 
         <!-- Embedded Menu Container -->
@@ -191,13 +191,127 @@
       <!-- DEALS SCREEN -->
       <section id="screen-deals" class="screen">
         <div class="screen-title-bar">
-          <h2>Deals & Specials</h2>
+          <h2><i class="fa-solid fa-tags"></i> Deals & Promotions</h2>
+          <p style="color: #666; font-size: 0.85rem; margin-top: 4px;">Exclusive savings updated daily.</p>
         </div>
-        <div class="deal-card" style="border-color: #2e7d32; margin-top: 12px;">
-          <span class="tag" style="background: #2e7d32; color: #fff;">APP-ONLY DEAL</span>
-          <h3 style="margin-top: 6px;">25% OFF</h3>
-          <p>Select Concentrates</p>
-          <button class="btn-primary" onclick="switchTab('menu')">SHOP NOW</button>
+
+        <!-- Deals Sub-Filter Tabs -->
+        <div class="deals-tabs-scroll" style="display: flex; gap: 8px; overflow-x: auto; padding: 12px 0; margin-bottom: 8px; -webkit-overflow-scrolling: touch;">
+          <button class="deal-tab-btn active" onclick="filterDeals('daily', this)" style="background: #2e7d32; color: #fff; border: none; padding: 8px 14px; border-radius: 20px; font-size: 0.85rem; white-space: nowrap; font-weight: bold; cursor: pointer;">
+            Daily Deals
+          </button>
+          <button class="deal-tab-btn" onclick="filterDeals('happy-hour', this)" style="background: #f0f0f0; color: #333; border: 1px solid #ddd; padding: 8px 14px; border-radius: 20px; font-size: 0.85rem; white-space: nowrap; font-weight: bold; cursor: pointer;">
+            Happy Hour
+          </button>
+          <button class="deal-tab-btn" onclick="filterDeals('app-only', this)" style="background: #f0f0f0; color: #333; border: 1px solid #ddd; padding: 8px 14px; border-radius: 20px; font-size: 0.85rem; white-space: nowrap; font-weight: bold; cursor: pointer;">
+            App-Only
+          </button>
+          <button class="deal-tab-btn" onclick="filterDeals('vendor-days', this)" style="background: #f0f0f0; color: #333; border: 1px solid #ddd; padding: 8px 14px; border-radius: 20px; font-size: 0.85rem; white-space: nowrap; font-weight: bold; cursor: pointer;">
+            Vendor Days
+          </button>
+          <button class="deal-tab-btn" onclick="filterDeals('clearance', this)" style="background: #f0f0f0; color: #333; border: 1px solid #ddd; padding: 8px 14px; border-radius: 20px; font-size: 0.85rem; white-space: nowrap; font-weight: bold; cursor: pointer;">
+            Clearance
+          </button>
+        </div>
+
+        <!-- DEALS CONTAINER -->
+        <div id="deals-content-container" style="display: flex; flex-direction: column; gap: 14px;">
+
+          <!-- DAILY DEALS CARD -->
+          <div class="deal-card-item deal-group-daily" style="background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+              <span style="background: #e8f5e9; color: #2e7d32; font-size: 0.75rem; font-weight: bold; padding: 4px 10px; border-radius: 12px; text-transform: uppercase;">
+                Daily Special
+              </span>
+              <span style="font-size: 0.8rem; color: #888;"><i class="fa-regular fa-clock"></i> Today Only</span>
+            </div>
+            <h3 style="font-size: 1.2rem; margin: 4px 0; color: #111;">Munchie Tuesday: 20% Off All Edibles</h3>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 12px;">Save on all gummies, chocolates, and infused beverages across all brands.</p>
+            <button class="btn-primary btn-sm" onclick="switchTab('menu')" style="width: 100%;">Shop Edibles</button>
+          </div>
+
+          <!-- HAPPY HOUR CARD -->
+          <div class="deal-card-item deal-group-happy-hour" style="background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+              <span style="background: #fff3e0; color: #e65100; font-size: 0.75rem; font-weight: bold; padding: 4px 10px; border-radius: 12px; text-transform: uppercase;">
+                Happy Hour
+              </span>
+              <span style="font-size: 0.8rem; color: #e65100; font-weight: bold;"><i class="fa-solid fa-bolt"></i> 4:00 PM – 7:00 PM</span>
+            </div>
+            <h3 style="font-size: 1.2rem; margin: 4px 0; color: #111;">Double Loyalty Points + 15% Off Vapes</h3>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 12px;">Stop by during peak hours to stack double points on every cart and disposable order.</p>
+            <button class="btn-primary btn-sm" onclick="switchTab('menu')" style="width: 100%;">Shop Happy Hour</button>
+          </div>
+
+          <!-- APP-ONLY DEALS CARD -->
+          <div class="deal-card-item deal-group-app-only" style="background: #fff; border: 1px solid #2e7d32; border-radius: 12px; padding: 16px; position: relative;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+              <span style="background: #2e7d32; color: #fff; font-size: 0.75rem; font-weight: bold; padding: 4px 10px; border-radius: 12px; text-transform: uppercase;">
+                <i class="fa-solid fa-mobile-screen-button"></i> App Exclusive
+              </span>
+              <span style="font-size: 0.8rem; color: #2e7d32; font-weight: bold;">Code: APP25</span>
+            </div>
+            <h3 style="font-size: 1.2rem; margin: 4px 0; color: #111;">25% Off In-House Live Rosin</h3>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 12px;">Valid only on mobile express orders placed through the app. Applied automatically at checkout.</p>
+            <button class="btn-primary btn-sm" onclick="switchTab('inhouse')" style="width: 100%;">Claim In-House Deal</button>
+          </div>
+
+          <!-- VENDOR DAYS CARD -->
+          <div class="deal-card-item deal-group-vendor-days" style="background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+              <span style="background: #e1f5fe; color: #0288d1; font-size: 0.75rem; font-weight: bold; padding: 4px 10px; border-radius: 12px; text-transform: uppercase;">
+                Pop-Up Event
+              </span>
+              <span style="font-size: 0.8rem; color: #0288d1; font-weight: bold;"><i class="fa-regular fa-calendar"></i> Friday • 2 PM–6 PM</span>
+            </div>
+            <h3 style="font-size: 1.2rem; margin: 4px 0; color: #111;">Wyld Brand Takeover & Buy 2 Get 1</h3>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 12px;">Meet the team from Wyld! Buy any 2 gummy packs and get a select 100mg pack for $1.</p>
+            <button class="btn-outline btn-sm" onclick="switchTab('menu')" style="width: 100%;">Browse Brand</button>
+          </div>
+
+          <!-- CLEARANCE CARD -->
+          <div class="deal-card-item deal-group-clearance" style="background: #fff; border: 1px solid #ffcdd2; border-radius: 12px; padding: 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+              <span style="background: #ffebee; color: #c62828; font-size: 0.75rem; font-weight: bold; padding: 4px 10px; border-radius: 12px; text-transform: uppercase;">
+                Last Chance
+              </span>
+              <span style="font-size: 0.8rem; color: #c62828; font-weight: bold;">Up to 50% OFF</span>
+            </div>
+            <h3 style="font-size: 1.2rem; margin: 4px 0; color: #111;">Inventory Blowout Clearance</h3>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 12px;">Limited stock on select batch strains, accessories, and seasonal merchandise.</p>
+            <button class="btn-primary btn-sm" onclick="switchTab('menu')" style="width: 100%; background: #c62828; border-color: #c62828;">Shop Clearance</button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- DELIVERY TRACKING SCREEN -->
+      <section id="screen-delivery" class="screen">
+        <div class="screen-title-bar">
+          <h2><i class="fa-solid fa-truck-fast"></i> Live Delivery Tracking</h2>
+          <p style="color: #666; font-size: 0.85rem; margin-top: 4px;">Track your order and driver in real time.</p>
+        </div>
+
+        <!-- Active Delivery Card -->
+        <div class="delivery-status-card" style="background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 16px; margin-top: 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <div>
+              <span style="font-weight: bold; font-size: 1rem;">Order #CC-9102</span>
+              <p style="font-size: 0.8rem; color: #666; margin-top: 2px;">Estimated Arrival: <strong>15–25 mins</strong></p>
+            </div>
+            <span style="background: #e8f5e9; color: #2e7d32; font-size: 0.75rem; font-weight: bold; padding: 4px 10px; border-radius: 12px;">Out for Delivery</span>
+          </div>
+
+          <!-- OnFleet Map Container -->
+          <div class="iframe-container" style="width: 100%; height: 420px; border-radius: 10px; overflow: hidden; border: 1px solid #ddd;">
+            <iframe 
+              id="onfleet-tracking-iframe"
+              src="https://onfleet.com/t/demo" 
+              style="width: 100%; height: 100%; border: none;"
+              title="OnFleet Live Tracking"
+              allow="geolocation">
+            </iframe>
+          </div>
         </div>
       </section>
 
@@ -222,111 +336,111 @@
       </section>
 
       <!-- IN-HOUSE SCREEN -->
-<section id="screen-inhouse" class="screen">
-  
-  <!-- In-House Hero Header -->
-  <div class="inhouse-hero">
-    <span class="inhouse-badge"><i class="fa-solid fa-award"></i> Signature Collection</span>
-    <h2>Grown By Us.<br>Made For You.</h2>
-    <p>Hand-crafted in small batches, pesticide-free, and cultivated locally in our state-of-the-art facilities.</p>
-  </div>
-
-  <!-- Quality Guarantee Badges -->
-  <div class="inhouse-perks-grid">
-    <div class="perk-card">
-      <i class="fa-solid fa-seedling perk-icon"></i>
-      <span>Indoor Grown</span>
-    </div>
-    <div class="perk-card">
-      <i class="fa-solid fa-flask perk-icon"></i>
-      <span>100% Lab Tested</span>
-    </div>
-    <div class="perk-card">
-      <i class="fa-solid fa-scissors perk-icon"></i>
-      <span>Hand Trimmed</span>
-    </div>
-  </div>
-
-  <!-- In-House Product Showcase -->
-  <div class="section-header" style="margin-top: 20px;">
-    <h3>Featured In-House Drops</h3>
-    <span class="see-all-link" onclick="switchTab('menu')">View All</span>
-  </div>
-
-  <div class="inhouse-products-grid">
-    
-    <!-- Product 1 -->
-    <div class="inhouse-card">
-      <div class="inhouse-card-thumb">
-        <img src="flower.png" alt="Canna Culture Reserve Flower">
-        <span class="batch-tag">Batch #402</span>
-      </div>
-      <div class="inhouse-card-body">
-        <span class="product-type">Reserve Flower</span>
-        <h4>Culture OG Kush</h4>
-        <div class="potency-row">
-          <span>THC: <strong>31.4%</strong></span>
-          <span class="strain-type indica">Indica</span>
+      <section id="screen-inhouse" class="screen">
+        
+        <!-- In-House Hero Header -->
+        <div class="inhouse-hero">
+          <span class="inhouse-badge"><i class="fa-solid fa-award"></i> Signature Collection</span>
+          <h2>Grown By Us.<br>Made For You.</h2>
+          <p>Hand-crafted in small batches, pesticide-free, and cultivated locally in our state-of-the-art facilities.</p>
         </div>
-        <p class="flavor-notes">Notes: Earthy pine, diesel, sweet citrus</p>
-        <div class="inhouse-card-footer">
-          <span class="price">$50.00 <small>/ 3.5g</small></span>
-          <button class="btn-primary btn-sm" onclick="addToCart('Culture OG Kush')">
-            <i class="fa-solid fa-plus"></i> Add
-          </button>
-        </div>
-      </div>
-    </div>
 
-    <!-- Product 2 -->
-    <div class="inhouse-card">
-      <div class="inhouse-card-thumb">
-        <img src="concentrates.png" alt="Solventless Live Rosin">
-        <span class="batch-tag">Solventless</span>
-      </div>
-      <div class="inhouse-card-body">
-        <span class="product-type">Live Rosin</span>
-        <h4>Guava Hash Rosin</h4>
-        <div class="potency-row">
-          <span>THC: <strong>78.2%</strong></span>
-          <span class="strain-type hybrid">Hybrid</span>
+        <!-- Quality Guarantee Badges -->
+        <div class="inhouse-perks-grid">
+          <div class="perk-card">
+            <i class="fa-solid fa-warehouse perk-icon"></i>
+            <span>Indoor Grown</span>
+          </div>
+          <div class="perk-card">
+            <i class="fa-solid fa-flask perk-icon"></i>
+            <span>100% Lab Tested</span>
+          </div>
+          <div class="perk-card">
+            <i class="fa-solid fa-scissors perk-icon"></i>
+            <span>Hand Trimmed</span>
+          </div>
         </div>
-        <p class="flavor-notes">Notes: Tropical guava, cream, gas</p>
-        <div class="inhouse-card-footer">
-          <span class="price">$65.00 <small>/ 1g</small></span>
-          <button class="btn-primary btn-sm" onclick="addToCart('Guava Hash Rosin')">
-            <i class="fa-solid fa-plus"></i> Add
-          </button>
-        </div>
-      </div>
-    </div>
 
-    <!-- Product 3 -->
-    <div class="inhouse-card">
-      <div class="inhouse-card-thumb">
-        <img src="prerolls.png" alt="Infused Pre-Roll 5-Pack">
-        <span class="batch-tag">Hand Rolled</span>
-      </div>
-      <div class="inhouse-card-body">
-        <span class="product-type">Infused Pre-Rolls</span>
-        <h4>Diamond Infused Pack</h4>
-        <div class="potency-row">
-          <span>THC: <strong>42.0%</strong></span>
-          <span class="strain-type sativa">Sativa</span>
+        <!-- In-House Product Showcase -->
+        <div class="section-header" style="margin-top: 20px;">
+          <h3>Featured In-House Drops</h3>
+          <span class="see-all-link" onclick="switchTab('menu')">View All</span>
         </div>
-        <p class="flavor-notes">Notes: Lemon haze, berries, sharp terpene kick</p>
-        <div class="inhouse-card-footer">
-          <span class="price">$40.00 <small>/ 2.5g total</small></span>
-          <button class="btn-primary btn-sm" onclick="addToCart('Diamond Infused Pack')">
-            <i class="fa-solid fa-plus"></i> Add
-          </button>
+
+        <div class="inhouse-products-grid">
+          
+          <!-- Product 1 -->
+          <div class="inhouse-card">
+            <div class="inhouse-card-thumb">
+              <img src="flower.png" alt="Canna Culture Reserve Flower">
+              <span class="batch-tag">Batch #402</span>
+            </div>
+            <div class="inhouse-card-body">
+              <span class="product-type">Reserve Flower</span>
+              <h4>Culture OG Kush</h4>
+              <div class="potency-row">
+                <span>THC: <strong>31.4%</strong></span>
+                <span class="strain-type indica">Indica</span>
+              </div>
+              <p class="flavor-notes">Notes: Earthy pine, diesel, sweet citrus</p>
+              <div class="inhouse-card-footer">
+                <span class="price">$50.00 <small>/ 3.5g</small></span>
+                <button class="btn-primary btn-sm" onclick="addToCart('Culture OG Kush')">
+                  <i class="fa-solid fa-plus"></i> Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 2 -->
+          <div class="inhouse-card">
+            <div class="inhouse-card-thumb">
+              <img src="concentrates.png" alt="Solventless Live Rosin">
+              <span class="batch-tag">Solventless</span>
+            </div>
+            <div class="inhouse-card-body">
+              <span class="product-type">Live Rosin</span>
+              <h4>Guava Hash Rosin</h4>
+              <div class="potency-row">
+                <span>THC: <strong>78.2%</strong></span>
+                <span class="strain-type hybrid">Hybrid</span>
+              </div>
+              <p class="flavor-notes">Notes: Tropical guava, cream, gas</p>
+              <div class="inhouse-card-footer">
+                <span class="price">$65.00 <small>/ 1g</small></span>
+                <button class="btn-primary btn-sm" onclick="addToCart('Guava Hash Rosin')">
+                  <i class="fa-solid fa-plus"></i> Add
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div class="inhouse-card">
+            <div class="inhouse-card-thumb">
+              <img src="prerolls.png" alt="Infused Pre-Roll 5-Pack">
+              <span class="batch-tag">Hand Rolled</span>
+            </div>
+            <div class="inhouse-card-body">
+              <span class="product-type">Infused Pre-Rolls</span>
+              <h4>Diamond Infused Pack</h4>
+              <div class="potency-row">
+                <span>THC: <strong>42.0%</strong></span>
+                <span class="strain-type sativa">Sativa</span>
+              </div>
+              <p class="flavor-notes">Notes: Lemon haze, berries, sharp terpene kick</p>
+              <div class="inhouse-card-footer">
+                <span class="price">$40.00 <small>/ 2.5g total</small></span>
+                <button class="btn-primary btn-sm" onclick="addToCart('Diamond Infused Pack')">
+                  <i class="fa-solid fa-plus"></i> Add
+                </button>
+              </div>
+            </div>
+          </div>
+
         </div>
-      </div>
-    </div>
 
-  </div>
-
-</section>
+      </section>
 
       <!-- ACCOUNT SCREEN -->
       <section id="screen-account" class="screen">
@@ -390,7 +504,7 @@
             <span class="menu-item-value" id="account-current-location">Charter Park</span>
           </div>
 
-          <div class="account-menu-item" onclick="resetAppData()">
+          <div class="account-menu-item" onclick="clearAppData()">
             <div class="menu-item-left">
               <i class="fa-solid fa-arrow-right-from-bracket menu-icon danger"></i>
               <span class="danger">Reset App / Age Verification</span>
@@ -413,13 +527,13 @@
         <i class="fa-solid fa-tag"></i>
         <span>Deals</span>
       </button>
+      <button class="nav-btn" onclick="switchTab('delivery')">
+        <i class="fa-solid fa-truck-fast"></i>
+        <span>Delivery</span>
+      </button>
       <button class="nav-btn" onclick="switchTab('loyalty')">
         <i class="fa-regular fa-heart"></i>
         <span>Loyalty</span>
-      </button>
-      <button class="nav-btn" onclick="switchTab('learn')">
-        <i class="fa-solid fa-lightbulb"></i>
-        <span>Learn</span>
       </button>
       <button class="nav-btn" onclick="switchTab('inhouse')">
         <i class="fa-solid fa-shield-halved"></i>
@@ -464,17 +578,13 @@
   <!-- Order History Modal -->
   <div id="orders-modal" class="age-overlay" style="display: none;">
     <div class="modal-card orders-card">
-      
       <div class="modal-header">
         <h3><i class="fa-solid fa-clock-rotate-left"></i> Order History</h3>
         <button class="modal-close-btn" onclick="closeOrdersModal()">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
-
       <div class="orders-list" id="orders-list-container">
-        
-        <!-- Order Item 1 -->
         <div class="order-card">
           <div class="order-card-header">
             <div>
@@ -483,7 +593,6 @@
             </div>
             <span class="order-status status-ready">Ready for Pickup</span>
           </div>
-          
           <div class="order-items-preview">
             <div class="order-item-row">
               <span>1x Sour Diesel Flower (3.5g)</span>
@@ -494,55 +603,25 @@
               <span>$36.00</span>
             </div>
           </div>
-
           <div class="order-card-footer">
             <span class="order-location"><i class="fa-solid fa-store"></i> Charter Park</span>
             <span class="order-total">Total: <strong>$81.00</strong></span>
           </div>
         </div>
-
-        <!-- Order Item 2 -->
-        <div class="order-card">
-          <div class="order-card-header">
-            <div>
-              <span class="order-id">#CC-7310</span>
-              <span class="order-date">Aug 28, 2026</span>
-            </div>
-            <span class="order-status status-completed">Completed</span>
-          </div>
-
-          <div class="order-items-preview">
-            <div class="order-item-row">
-              <span>1x Live Rosin Vape Cart (1g)</span>
-              <span>$55.00</span>
-            </div>
-          </div>
-
-          <div class="order-card-footer">
-            <span class="order-location"><i class="fa-solid fa-store"></i> Midtown</span>
-            <span class="order-total">Total: <strong>$55.00</strong></span>
-          </div>
-        </div>
-
       </div>
-
     </div>
   </div>
 
   <!-- Saved Favorites Modal -->
   <div id="favorites-modal" class="age-overlay" style="display: none;">
     <div class="modal-card favorites-card">
-      
       <div class="modal-header">
         <h3><i class="fa-solid fa-heart"></i> Saved Favorites</h3>
         <button class="modal-close-btn" onclick="closeFavoritesModal()">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
-
       <div class="favorites-list" id="favorites-list-container">
-        
-        <!-- Favorite Item 1 -->
         <div class="favorite-item-card">
           <div class="favorite-item-left">
             <div class="favorite-thumb-box">
@@ -558,77 +637,23 @@
             <button class="btn-primary btn-sm" onclick="addToCart('Sour Diesel')">
               <i class="fa-solid fa-bag-shopping"></i> Add
             </button>
-            <button class="favorite-remove-btn" onclick="removeFavorite(this)" title="Remove from favorites">
-              <i class="fa-solid fa-trash-can"></i>
-            </button>
           </div>
         </div>
-
-        <!-- Favorite Item 2 -->
-        <div class="favorite-item-card">
-          <div class="favorite-item-left">
-            <div class="favorite-thumb-box">
-              <img src="concentrates.png" alt="Live Rosin" class="favorite-thumb-img">
-            </div>
-            <div class="favorite-details">
-              <span class="favorite-title">Blueberry Live Rosin</span>
-              <span class="favorite-category">Concentrates • 1g</span>
-              <span class="favorite-price">$55.00</span>
-            </div>
-          </div>
-          <div class="favorite-actions">
-            <button class="btn-primary btn-sm" onclick="addToCart('Blueberry Live Rosin')">
-              <i class="fa-solid fa-bag-shopping"></i> Add
-            </button>
-            <button class="favorite-remove-btn" onclick="removeFavorite(this)" title="Remove from favorites">
-              <i class="fa-solid fa-trash-can"></i>
-            </button>
-          </div>
-        </div>
-
-        <!-- Favorite Item 3 -->
-        <div class="favorite-item-card">
-          <div class="favorite-item-left">
-            <div class="favorite-thumb-box">
-              <img src="edibles.png" alt="Mango Gummies" class="favorite-thumb-img">
-            </div>
-            <div class="favorite-details">
-              <span class="favorite-title">Mango Gummies 100mg</span>
-              <span class="favorite-category">Edibles • 10 pack</span>
-              <span class="favorite-price">$18.00</span>
-            </div>
-          </div>
-          <div class="favorite-actions">
-            <button class="btn-primary btn-sm" onclick="addToCart('Mango Gummies')">
-              <i class="fa-solid fa-bag-shopping"></i> Add
-            </button>
-            <button class="favorite-remove-btn" onclick="removeFavorite(this)" title="Remove from favorites">
-              <i class="fa-solid fa-trash-can"></i>
-            </button>
-          </div>
-        </div>
-
       </div>
-
     </div>
   </div>
 
   <!-- APP SETTINGS & PRIVACY MODAL -->
   <div id="settings-modal" class="age-overlay" style="display: none;">
     <div class="modal-card settings-card">
-      
       <div class="modal-header">
         <h3><i class="fa-solid fa-gear"></i> Settings & Privacy</h3>
         <button class="modal-close-btn" onclick="closeSettingsModal()">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
-
       <div class="settings-list">
-        
-        <!-- Section: Notifications -->
         <div class="settings-group-title">NOTIFICATIONS</div>
-        
         <div class="setting-item">
           <div class="setting-text">
             <span class="setting-title">Daily Deals & Drops</span>
@@ -639,7 +664,6 @@
             <span class="toggle-slider"></span>
           </label>
         </div>
-
         <div class="setting-item">
           <div class="setting-text">
             <span class="setting-title">Order Status Updates</span>
@@ -650,10 +674,7 @@
             <span class="toggle-slider"></span>
           </label>
         </div>
-
-        <!-- Section: Preferences -->
         <div class="settings-group-title">PREFERENCES</div>
-
         <div class="setting-item">
           <div class="setting-text">
             <span class="setting-title">Dark Mode</span>
@@ -664,10 +685,7 @@
             <span class="toggle-slider"></span>
           </label>
         </div>
-
-        <!-- Section: Privacy & Data -->
         <div class="settings-group-title">PRIVACY & DATA</div>
-
         <div class="setting-item clickable" onclick="clearAppData()">
           <div class="setting-text">
             <span class="setting-title danger">Clear Cached App Data</span>
@@ -675,9 +693,7 @@
           </div>
           <i class="fa-solid fa-trash-can danger"></i>
         </div>
-
       </div>
-
     </div>
   </div>
 
