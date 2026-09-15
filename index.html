@@ -38,31 +38,57 @@
     <!-- App Content Screens -->
     <main id="app-content">
 
+      <!-- HOME SCREEN (ACTIVE BY DEFAULT) -->
       <!-- HOME SCREEN -->
-      <section id="screen-home" class="screen">
-        <div class="hero-banner">
-          <h2>Premium Cannabis.</h2>
-          <p>Rooted in Quality.</p>
-          <button class="btn-primary" onclick="switchTab('menu')">SHOP MENU</button>
-        </div>
+<section id="screen-home" class="screen active">
+  
+  <!-- Dark Hero Section -->
+  <div class="hero-banner-dark">
+    <div class="hero-content">
+      <h2>Premium<br>Cannabis.</h2>
+      <p>Rooted in Quality.</p>
+      <button class="btn-green-pill" onclick="switchTab('menu')">SHOP MENU</button>
+    </div>
+    <div class="hero-image-wrap">
+      <img src="Cannabis Leaf.jpg" alt="Cannabis Leaf" class="hero-img">
+    </div>
+  </div>
 
-        <div class="deal-card">
-          <span class="tag">DAILY DEAL</span>
-          <h3>20% OFF</h3>
-          <p>Select Flower Today Only</p>
-          <button class="btn-outline" onclick="switchTab('deals')">VIEW DEALS</button>
-        </div>
+  <!-- Main Dark Card Container -->
+  <div class="home-body">
+    
+    <!-- Daily Deal Card -->
+    <div class="deal-card-dark">
+      <div class="deal-info">
+        <span class="deal-tag">DAILY DEAL</span>
+        <h3>20% OFF</h3>
+        <p>Select Flower<br>Today Only</p>
+        <button class="btn-green-pill btn-sm" onclick="switchTab('deals')">VIEW DEALS</button>
+      </div>
+      <div class="deal-image-wrap">
+        <img src="Featured Flower.jpg" alt="Featured Flower" class="deal-img">
+      </div>
+    </div>
 
-        <div class="section-header">
-          <h3>Featured Products</h3>
-          <span class="see-all-link" onclick="switchTab('menu')">See All</span>
-        </div>
+    <!-- Featured Products Section -->
+    <div class="section-header-row">
+      <h3>FEATURED PRODUCTS</h3>
+      <span class="see-all-link" onclick="switchTab('menu')">See All</span>
+    </div>
 
-        <div class="product-grid" id="featured-products"></div>
-      </section>
+    <!-- Horizontal Product Carousel -->
+    <div class="product-carousel">
+  <div class="product-thumb-card"><img src="flower.png" alt="Flower"></div>
+  <div class="product-thumb-card"><img src="edibles.png" alt="Edibles"></div>
+  <div class="product-thumb-card"><img src="vapes.png" alt="Vapes"></div>
+  <div class="product-thumb-card"><img src="concentrates.png" alt="Concentrates"></div>
+</div>
 
-      <!-- LIGHT THEME MENU SCREEN (ACTIVE BY DEFAULT) -->
-      <section id="screen-menu" class="screen active">
+  </div>
+</section>
+
+      <!-- LIGHT THEME MENU SCREEN -->
+      <section id="screen-menu" class="screen">
         
         <!-- Search Bar -->
         <div class="search-container-light">
@@ -301,28 +327,39 @@
 
       <!-- LOYALTY SCREEN -->
       <section id="screen-loyalty" class="screen">
-        
-        <!-- Points & Membership Card -->
-        <div class="loyalty-hero-card">
-          <div class="loyalty-header-top">
-            <div>
-              <span class="membership-label"><i class="fa-solid fa-crown"></i> GOLD MEMBER</span>
-              <h2 id="loyalty-user-name">Jane Doe</h2>
+        <div class="screen-title-bar">
+          <h2><i class="fa-regular fa-heart"></i> Loyalty & Rewards</h2>
+          <p style="color: #666; font-size: 0.85rem; margin-top: 4px;">Earn points on every purchase and redeem for discounts.</p>
+        </div>
+
+        <!-- Membership Tiers Section -->
+        <div class="membership-tiers-section" style="margin-top: 16px;">
+          <h3>Membership Tiers</h3>
+
+          <!-- Gold Tier (Current) -->
+          <div class="tier-card active-tier">
+            <div class="tier-icon-box">
+              <i class="fa-solid fa-crown"></i>
             </div>
-            <div class="points-badge">
-              <span class="points-val" id="user-points">420</span>
-              <span class="points-lbl">PTS</span>
+            <div class="tier-info">
+              <div class="tier-header-row">
+                <span class="tier-name">Gold Tier</span>
+                <span class="current-tag">CURRENT</span>
+              </div>
+              <p class="tier-perks">1.25x Points Earned per $1 spent • Free Birthday Joint</p>
             </div>
           </div>
 
-          <!-- Tier Progress -->
-          <div class="tier-progress-container">
-            <div class="tier-labels">
-              <span>Gold Tier</span>
-              <span><strong>80 PTS</strong> to Diamond</span>
+          <!-- Diamond Tier -->
+          <div class="tier-card">
+            <div class="tier-icon-box">
+              <i class="fa-solid fa-gem"></i>
             </div>
-            <div class="progress-bar-bg">
-              <div class="progress-bar-fill" style="width: 84%;"></div>
+            <div class="tier-info">
+              <div class="tier-header-row">
+                <span class="tier-name">Diamond Tier (500+ PTS)</span>
+              </div>
+              <p class="tier-perks">1.5x Points Earned per $1 spent • Free Monthly Edible • Free Express Delivery</p>
             </div>
           </div>
         </div>
@@ -378,37 +415,150 @@
           </div>
 
         </div>
-
-        <!-- Tier Benefits Summary -->
-        <div class="section-header" style="margin-top: 28px;">
-          <h3>Membership Tiers</h3>
-        </div>
-
-        <div class="tiers-comparison">
-          <div class="tier-item active">
-            <div class="tier-badge-icon gold"><i class="fa-solid fa-crown"></i></div>
-            <div class="tier-details">
-              <h4>Gold Tier <span class="current-tag">CURRENT</span></h4>
-              <p>1.25x Points Earned per $1 spent • Free Birthday Joint </p>
-            </div>
-          </div>
-
-          <div class="tier-item">
-            <div class="tier-badge-icon diamond"><i class="fa-solid fa-gem"></i></div>
-            <div class="tier-details">
-              <h4>Diamond Tier (500+ PTS)</h4>
-              <p>1.5x Points Earned per $1 spent • Free Monthly Edible • Free Express Delivery</p>
-            </div>
-          </div>
-        </div>
-
       </section>
 
       <!-- LEARN SCREEN -->
       <section id="screen-learn" class="screen">
-        <div class="learn-header">
-          <h2>Knowledge Elevates Your Experience</h2>
-          <p style="color: #666; font-size: 0.85rem; margin-top: 4px;">Explore. Learn. Elevate.</p>
+        <div class="learn-header" style="padding: 16px 0 8px 0;">
+          <h2>Cannabis Education</h2>
+          <p style="color: #666; font-size: 0.85rem; margin-top: 4px;">Explore guides, strains, dosing, and science.</p>
+        </div>
+
+        <div class="learn-grid" style="display: flex; flex-direction: column; gap: 14px; padding-bottom: 24px;">
+
+          <!-- 1. Strain Library -->
+          <div class="learn-card" style="background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 16px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+              <div style="background: #e8f5e9; color: #2e7d32; width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                <i class="fa-solid fa-book-bookmark"></i>
+              </div>
+              <div>
+                <h3 style="font-size: 1.1rem; color: #111;">Strain Library</h3>
+                <span style="font-size: 0.75rem; color: #888;">Profiles, Lineage & Effects</span>
+              </div>
+            </div>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 12px;">Browse detailed profiles for classic and trending strains, including flavor notes, terpene breakdowns, and user-reported feelings.</p>
+            <button class="btn-outline btn-sm" onclick="switchTab('menu')" style="width: 100%;">Explore Strains</button>
+          </div>
+
+          <!-- 2. Cannabinoids Explained -->
+          <div class="learn-card" style="background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 16px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+              <div style="background: #e3f2fd; color: #1565c0; width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                <i class="fa-solid fa-flask-vial"></i>
+              </div>
+              <div>
+                <h3 style="font-size: 1.1rem; color: #111;">Cannabinoids Explained</h3>
+                <span style="font-size: 0.75rem; color: #888;">THC, CBD, CBN, CBG & More</span>
+              </div>
+            </div>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 8px;">Understand how active compounds interact with your body’s endocannabinoid system:</p>
+            <ul style="font-size: 0.85rem; color: #444; margin-left: 18px; margin-bottom: 12px; line-height: 1.4;">
+              <li><strong>THC:</strong> Primary psychoactive compound responsible for euphoria.</li>
+              <li><strong>CBD:</strong> Non-intoxicating compound valued for relaxation and wellness.</li>
+              <li><strong>CBN:</strong> Minor cannabinoid popular for nighttime routines.</li>
+              <li><strong>CBG:</strong> Known as the "mother cannabinoid," great for daytime focus.</li>
+            </ul>
+          </div>
+
+          <!-- 3. Terpenes Explained -->
+          <div class="learn-card" style="background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 16px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+              <div style="background: #fff3e0; color: #e65100; width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                <i class="fa-solid fa-lemon"></i>
+              </div>
+              <div>
+                <h3 style="font-size: 1.1rem; color: #111;">Terpenes & Aromas</h3>
+                <span style="font-size: 0.75rem; color: #888;">The Entourage Effect</span>
+              </div>
+            </div>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 8px;">Terpenes are aromatic compounds that give strains their distinct smells and shape overall effects:</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.8rem; color: #444;">
+              <div style="background: #f9f9f9; padding: 8px; border-radius: 6px;"><strong>Myrcene:</strong> Herbal & relaxing</div>
+              <div style="background: #f9f9f9; padding: 8px; border-radius: 6px;"><strong>Limonene:</strong> Citrusy & mood-boosting</div>
+              <div style="background: #f9f9f9; padding: 8px; border-radius: 6px;"><strong>Caryophyllene:</strong> Peppery & soothing</div>
+              <div style="background: #f9f9f9; padding: 8px; border-radius: 6px;"><strong>Pinene:</strong> Pine & mental clarity</div>
+            </div>
+          </div>
+
+          <!-- 4. Indica vs. Sativa vs. Hybrid -->
+          <div class="learn-card" style="background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 16px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+              <div style="background: #f3e5f5; color: #7b1fa2; width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                <i class="fa-solid fa-seedling"></i>
+              </div>
+              <div>
+                <h3 style="font-size: 1.1rem; color: #111;">Indica vs. Sativa vs. Hybrid</h3>
+                <span style="font-size: 0.75rem; color: #888;">Finding Your Ideal Match</span>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; color: #444; margin-top: 8px;">
+              <div style="padding: 6px 10px; background: #ede7f6; border-radius: 6px;"><strong>Indica:</strong> Often associated with relaxing body effects ("In-Da-Couch").</div>
+              <div style="padding: 6px 10px; background: #fff8e1; border-radius: 6px;"><strong>Sativa:</strong> Commonly linked to uplifting, energetic, and cerebral experiences.</div>
+              <div style="padding: 6px 10px; background: #e8f5e9; border-radius: 6px;"><strong>Hybrid:</strong> Balanced blends engineered for tailored combinations of effects.</div>
+            </div>
+          </div>
+
+          <!-- 5. How to Dose -->
+          <div class="learn-card" style="background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 16px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+              <div style="background: #ffebee; color: #c62828; width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                <i class="fa-solid fa-prescription-bottle-medical"></i>
+              </div>
+              <div>
+                <h3 style="font-size: 1.1rem; color: #111;">Dosing Guide</h3>
+                <span style="font-size: 0.75rem; color: #888;">Start Low, Go Slow</span>
+              </div>
+            </div>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 8px;">A quick reference guide for edible dosing:</p>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.8rem; text-align: left;">
+              <thead>
+                <tr style="border-bottom: 1px solid #ddd; color: #333;">
+                  <th style="padding: 4px 0;">Dose</th>
+                  <th style="padding: 4px 0;">Level</th>
+                  <th style="padding: 4px 0;">Expected Effect</th>
+                </tr>
+              </thead>
+              <tbody style="color: #555;">
+                <tr style="border-bottom: 1px solid #f0f0f0;">
+                  <td style="padding: 6px 0;"><strong>1 – 2.5 mg</strong></td>
+                  <td>Microdose</td>
+                  <td>Mild relief, focus</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #f0f0f0;">
+                  <td style="padding: 6px 0;"><strong>3 – 5 mg</strong></td>
+                  <td>Low</td>
+                  <td>Light euphoria, relaxing</td>
+                </tr>
+                <tr>
+                  <td style="padding: 6px 0;"><strong>10+ mg</strong></td>
+                  <td>Standard</td>
+                  <td>Strong effect, high tolerance</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 6. Different Types of Concentrates -->
+          <div class="learn-card" style="background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 16px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+              <div style="background: #e0f2f1; color: #00695c; width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                <i class="fa-solid fa-droplet"></i>
+              </div>
+              <div>
+                <h3 style="font-size: 1.1rem; color: #111;">Types of Concentrates</h3>
+                <span style="font-size: 0.75rem; color: #888;">Extracts & Textures</span>
+              </div>
+            </div>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 8px;">Learn the differences between popular solvent-based and solventless extracts:</p>
+            <div style="display: flex; flex-direction: column; gap: 6px; font-size: 0.8rem; color: #444;">
+              <div><strong>Live Rosin:</strong> Solventless extract made using only ice, water, heat, and pressure to preserve maximum terpenes.</div>
+              <div><strong>Shatter:</strong> Glass-like consistency, known for high stability and potent THC levels.</div>
+              <div><strong>Wax / Budder:</strong> Creamy, easy-to-handle textures perfect for precise dabbing.</div>
+              <div><strong>Live Resin:</strong> Extracted from flash-frozen plant material to preserve fresh plant aromas.</div>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -587,7 +737,11 @@
 
     <!-- Bottom Navigation Bar -->
     <nav class="bottom-nav">
-      <button class="nav-btn active" onclick="switchTab('menu')">
+      <button class="nav-btn active" onclick="switchTab('home')">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+      </button>
+      <button class="nav-btn" onclick="switchTab('menu')">
         <i class="fa-solid fa-cannabis"></i>
         <span>Menu</span>
       </button>
@@ -602,6 +756,10 @@
       <button class="nav-btn" onclick="switchTab('loyalty')">
         <i class="fa-regular fa-heart"></i>
         <span>Loyalty</span>
+      </button>
+      <button class="nav-btn" onclick="switchTab('learn')">
+        <i class="fa-solid fa-book-open"></i>
+        <span>Learn</span>
       </button>
       <button class="nav-btn" onclick="switchTab('inhouse')">
         <i class="fa-solid fa-shield-halved"></i>

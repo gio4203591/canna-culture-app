@@ -4,16 +4,25 @@
 
 // App State Management
 const appState = {
-  currentTab: 'menu',
+  currentTab: 'home',
   location: 'Charter Park',
   userPoints: 420,
   cartCount: 0,
   isAgeVerified: false
 };
 
+// Sample featured products data matching mockup style
+const featuredProducts = [
+  { id: 'fp-1', name: 'Flower', image: 'flower.png' },
+  { id: 'fp-2', name: 'Edibles', image: 'edibles.png' },
+  { id: 'fp-3', name: 'Vape Cartridge', image: 'vapes.png' },
+  { id: 'fp-4', name: 'Concentrate Jar', image: 'concentrates.png' }
+];
+
 // Initialize app when DOM loads
 document.addEventListener('DOMContentLoaded', () => {
   initApp();
+  renderFeaturedProducts();
 });
 
 function initApp() {
@@ -32,12 +41,12 @@ function initApp() {
     updateLocationUI(savedLocation);
   }
 
-  // Initial tab setup
-  switchTab('menu');
+  // Default active screen set to 'home'
+  switchTab('home');
 }
 
 /* ==========================================================================
-   TAB SWITCHING LOGIC (BOTTOM NAV FIX)
+   TAB SWITCHING LOGIC (BOTTOM NAV)
    ========================================================================== */
 function switchTab(tabName) {
   appState.currentTab = tabName;
@@ -75,6 +84,20 @@ function switchTab(tabName) {
   if (contentContainer) {
     contentContainer.scrollTop = 0;
   }
+}
+
+/* ==========================================================================
+   HOME SCREEN - FEATURED PRODUCTS CAROUSEL
+   ========================================================================== */
+function renderFeaturedProducts() {
+  const container = document.getElementById('featured-products');
+  if (!container) return;
+
+  container.innerHTML = featuredProducts.map(product => `
+    <div class="product-thumb-card" onclick="switchTab('menu')">
+      <img src="${product.image}" alt="${product.name}">
+    </div>
+  `).join('');
 }
 
 /* ==========================================================================
@@ -164,7 +187,6 @@ function filterDeals(category, btnElement) {
    ========================================================================== */
 function filterByCategory(categoryName) {
   console.log(`Filtering menu category: ${categoryName}`);
-  // Place category filter integration logic here
 }
 
 function addToCart(productName) {

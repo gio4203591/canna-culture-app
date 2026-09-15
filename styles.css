@@ -167,11 +167,7 @@ body {
   font-size: 0.72rem;
   font-weight: 500;
   cursor: pointer;
-  pointer-events: auto !important;
-}
-
-.bottom-nav .nav-btn * {
-  pointer-events: none !important;
+  user-select: none;
 }
 
 .bottom-nav .nav-btn i {
@@ -735,4 +731,275 @@ body {
   font-size: 1.2rem;
   cursor: pointer;
   color: #6b7280;
+}
+
+/* ==========================================================================
+   LOYALTY MEMBERSHIP TIERS STYLING
+   ========================================================================== */
+.membership-tiers-section {
+  margin-top: 24px;
+}
+
+.membership-tiers-section h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.tier-card, 
+.membership-tiers-section > div {
+  background: #ffffff;
+  border: 1px solid #eef0f2;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.tier-card.active-tier {
+  border: 1.5px solid #2e7d32;
+  background-color: #f6fbf7;
+}
+
+.tier-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.tier-name, 
+.membership-tiers-section strong {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.current-tag,
+.membership-tiers-section span[style*="CURRENT"],
+.membership-tiers-section .badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: #2e7d32;
+  color: #ffffff;
+  padding: 3px 8px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+}
+
+.tier-perks,
+.membership-tiers-section p {
+  font-size: 0.8rem;
+  color: #4b5563;
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+/* ==========================================================================
+   HOME SCREEN & CAROUSEL
+   ========================================================================== */
+#screen-home {
+  background-color: #f7f7f5;
+  padding: 0 0 80px 0;
+}
+
+.hero-banner-dark {
+  background-color: #0d130e;
+  color: #ffffff;
+  padding: 24px 20px 30px 20px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-content {
+  z-index: 2;
+  max-width: 55%;
+}
+
+.hero-content h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 6px;
+  color: #ffffff;
+}
+
+.hero-content p {
+  font-size: 0.9rem;
+  color: #c0c0c0;
+  margin-bottom: 16px;
+}
+
+.hero-image-wrap {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  width: 55%;
+  height: 110%;
+  pointer-events: none;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn-green-pill {
+  background-color: #2d7a32;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 18px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+
+.btn-green-pill.btn-sm {
+  padding: 8px 14px;
+  font-size: 0.75rem;
+}
+
+.home-body {
+  padding: 16px;
+  margin-top: -12px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: #f7f7f5;
+  position: relative;
+  z-index: 3;
+}
+
+/* ==========================================================================
+   DAILY DEAL CARD FIX
+   ========================================================================== */
+.deal-card-dark {
+  background-color: #121813;
+  border-radius: 18px;
+  padding: 20px 0 20px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-height: 170px;
+  overflow: hidden; 
+  position: relative;
+}
+
+.deal-info {
+  flex: 1;
+  padding-right: 16px;
+  z-index: 2;
+}
+
+.deal-tag {
+  color: #8fae8b;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.deal-info h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 4px 0;
+  color: #ffffff;
+}
+
+.deal-info p {
+  font-size: 0.85rem;
+  color: #d0d0d0;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.deal-image-wrap {
+  width: 48%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+}
+
+.deal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ==========================================================================
+   SECTION HEADER & COMPACT CAROUSEL FIX
+   ========================================================================== */
+.section-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.section-header-row h3 {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #222222;
+  letter-spacing: 0.5px;
+}
+
+.see-all-link {
+  font-size: 0.85rem;
+  color: #6b8e68;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Carousel Container */
+.product-carousel {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  width: 100%;
+}
+
+.product-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Compact Thumb Cards */
+.product-thumb-card {
+  flex: 0 0 85px;
+  min-width: 85px;
+  width: 85px;
+  height: 85px;
+  background-color: #f0f0f0;
+  border: 1px solid #e2e2e2;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+/* Thumbnail Images inside Carousel */
+.product-thumb-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
