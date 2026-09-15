@@ -426,4 +426,11 @@ function switchTab(tabId) {
   if (tabId === 'loyalty') renderLoyaltyScreen();
   if (tabId === 'learn') renderLearnScreen();
   if (tabId === 'account') renderAccountScreen();
+}function filterByCategory(category) {
+  console.log(`Filtering by category: ${category}`);
+  // If using Jane iFrame integration:
+  const iframe = document.getElementById('menu-iframe');
+  if (iframe && iframe.src) {
+    iframe.src = `${iframe.src.split('?')[0]}?category=${category}`;
+  }
 }
