@@ -76,7 +76,6 @@
         <!-- Full-Width Light Category Rows -->
         <div class="category-list-light">
           
-          <!-- Flower Category Row -->
           <div class="category-row-light" onclick="filterByCategory('flower')">
             <div class="category-row-left">
               <div class="category-icon-box">
@@ -90,7 +89,6 @@
             <i class="fa-solid fa-chevron-right category-arrow"></i>
           </div>
 
-          <!-- Accessories Category Row (Moved under Flower) -->
           <div class="category-row-light" onclick="filterByCategory('accessories')">
             <div class="category-row-left">
               <div class="category-icon-box">
@@ -104,7 +102,6 @@
             <i class="fa-solid fa-chevron-right category-arrow"></i>
           </div>
 
-          <!-- Pre-Rolls Category Row -->
           <div class="category-row-light" onclick="filterByCategory('pre-rolls')">
             <div class="category-row-left">
               <div class="category-icon-box">
@@ -118,7 +115,6 @@
             <i class="fa-solid fa-chevron-right category-arrow"></i>
           </div>
 
-          <!-- Concentrates Category Row -->
           <div class="category-row-light" onclick="filterByCategory('concentrates')">
             <div class="category-row-left">
               <div class="category-icon-box">
@@ -132,7 +128,6 @@
             <i class="fa-solid fa-chevron-right category-arrow"></i>
           </div>
 
-          <!-- Vapes Category Row -->
           <div class="category-row-light" onclick="filterByCategory('vapes')">
             <div class="category-row-left">
               <div class="category-icon-box">
@@ -146,7 +141,6 @@
             <i class="fa-solid fa-chevron-right category-arrow"></i>
           </div>
 
-          <!-- Edibles Category Row -->
           <div class="category-row-light" onclick="filterByCategory('edibles')">
             <div class="category-row-left">
               <div class="category-icon-box">
@@ -160,7 +154,6 @@
             <i class="fa-solid fa-chevron-right category-arrow"></i>
           </div>
 
-          <!-- Tinctures & Topicals Category Row -->
           <div class="category-row-light" onclick="filterByCategory('topicals')">
             <div class="category-row-left">
               <div class="category-icon-box">
@@ -195,7 +188,6 @@
           <p style="color: #666; font-size: 0.85rem; margin-top: 4px;">Exclusive savings updated daily.</p>
         </div>
 
-        <!-- Deals Sub-Filter Tabs -->
         <div class="deals-tabs-scroll" style="display: flex; gap: 8px; overflow-x: auto; padding: 12px 0; margin-bottom: 8px; -webkit-overflow-scrolling: touch;">
           <button class="deal-tab-btn active" onclick="filterDeals('daily', this)" style="background: #2e7d32; color: #fff; border: none; padding: 8px 14px; border-radius: 20px; font-size: 0.85rem; white-space: nowrap; font-weight: bold; cursor: pointer;">
             Daily Deals
@@ -214,10 +206,8 @@
           </button>
         </div>
 
-        <!-- DEALS CONTAINER -->
         <div id="deals-content-container" style="display: flex; flex-direction: column; gap: 14px;">
 
-          <!-- DAILY DEALS CARD -->
           <div class="deal-card-item deal-group-daily" style="background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 16px;">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
               <span style="background: #e8f5e9; color: #2e7d32; font-size: 0.75rem; font-weight: bold; padding: 4px 10px; border-radius: 12px; text-transform: uppercase;">
@@ -230,7 +220,6 @@
             <button class="btn-primary btn-sm" onclick="switchTab('menu')" style="width: 100%;">Shop Edibles</button>
           </div>
 
-          <!-- HAPPY HOUR CARD -->
           <div class="deal-card-item deal-group-happy-hour" style="background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 16px;">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
               <span style="background: #fff3e0; color: #e65100; font-size: 0.75rem; font-weight: bold; padding: 4px 10px; border-radius: 12px; text-transform: uppercase;">
@@ -243,7 +232,6 @@
             <button class="btn-primary btn-sm" onclick="switchTab('menu')" style="width: 100%;">Shop Happy Hour</button>
           </div>
 
-          <!-- APP-ONLY DEALS CARD -->
           <div class="deal-card-item deal-group-app-only" style="background: #fff; border: 1px solid #2e7d32; border-radius: 12px; padding: 16px; position: relative;">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
               <span style="background: #2e7d32; color: #fff; font-size: 0.75rem; font-weight: bold; padding: 4px 10px; border-radius: 12px; text-transform: uppercase;">
@@ -256,7 +244,6 @@
             <button class="btn-primary btn-sm" onclick="switchTab('inhouse')" style="width: 100%;">Claim In-House Deal</button>
           </div>
 
-          <!-- VENDOR DAYS CARD -->
           <div class="deal-card-item deal-group-vendor-days" style="background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 16px;">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
               <span style="background: #e1f5fe; color: #0288d1; font-size: 0.75rem; font-weight: bold; padding: 4px 10px; border-radius: 12px; text-transform: uppercase;">
@@ -269,7 +256,6 @@
             <button class="btn-outline btn-sm" onclick="switchTab('menu')" style="width: 100%;">Browse Brand</button>
           </div>
 
-          <!-- CLEARANCE CARD -->
           <div class="deal-card-item deal-group-clearance" style="background: #fff; border: 1px solid #ffcdd2; border-radius: 12px; padding: 16px;">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
               <span style="background: #ffebee; color: #c62828; font-size: 0.75rem; font-weight: bold; padding: 4px 10px; border-radius: 12px; text-transform: uppercase;">
@@ -292,7 +278,6 @@
           <p style="color: #666; font-size: 0.85rem; margin-top: 4px;">Track your order and driver in real time.</p>
         </div>
 
-        <!-- Active Delivery Card -->
         <div class="delivery-status-card" style="background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 16px; margin-top: 16px;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
             <div>
@@ -302,7 +287,6 @@
             <span style="background: #e8f5e9; color: #2e7d32; font-size: 0.75rem; font-weight: bold; padding: 4px 10px; border-radius: 12px;">Out for Delivery</span>
           </div>
 
-          <!-- OnFleet Map Container -->
           <div class="iframe-container" style="width: 100%; height: 420px; border-radius: 10px; overflow: hidden; border: 1px solid #ddd;">
             <iframe 
               id="onfleet-tracking-iframe"
@@ -317,14 +301,107 @@
 
       <!-- LOYALTY SCREEN -->
       <section id="screen-loyalty" class="screen">
-        <div class="hero-banner">
-          <h3>Welcome back!</h3>
-          <p style="color: #666; font-size: 0.85rem; margin-top: 4px;">You're earning greatness.</p>
-          <div style="margin-top: 16px;">
-            <span style="font-size: 2.2rem; font-weight: bold; color: #2e7d32;" id="user-points">420</span>
-            <span style="font-size: 0.9rem; color: #666;">Points</span>
+        
+        <!-- Points & Membership Card -->
+        <div class="loyalty-hero-card">
+          <div class="loyalty-header-top">
+            <div>
+              <span class="membership-label"><i class="fa-solid fa-crown"></i> GOLD MEMBER</span>
+              <h2 id="loyalty-user-name">Jane Doe</h2>
+            </div>
+            <div class="points-badge">
+              <span class="points-val" id="user-points">420</span>
+              <span class="points-lbl">PTS</span>
+            </div>
+          </div>
+
+          <!-- Tier Progress -->
+          <div class="tier-progress-container">
+            <div class="tier-labels">
+              <span>Gold Tier</span>
+              <span><strong>80 PTS</strong> to Diamond</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" style="width: 84%;"></div>
+            </div>
           </div>
         </div>
+
+        <!-- Available Rewards to Redeem -->
+        <div class="section-header" style="margin-top: 24px;">
+          <h3>Redeem Rewards</h3>
+          <span class="sub-header-tag">Available Balance: <strong id="balance-pts-tag">420 PTS</strong></span>
+        </div>
+
+        <div class="rewards-grid" id="rewards-container">
+          
+          <div class="reward-card">
+            <div class="reward-left">
+              <div class="reward-icon-box">
+                <i class="fa-solid fa-tag"></i>
+              </div>
+              <div class="reward-info">
+                <h4>$5 Off Total Order</h4>
+                <p>Valid on any purchase over $25</p>
+                <span class="reward-cost"><i class="fa-solid fa-coins"></i> 100 Points</span>
+              </div>
+            </div>
+            <button class="btn-primary btn-sm" onclick="redeemReward(100, '$5 Off Total Order')">Redeem</button>
+          </div>
+
+          <div class="reward-card">
+            <div class="reward-left">
+              <div class="reward-icon-box">
+                <i class="fa-solid fa-joint"></i>
+              </div>
+              <div class="reward-info">
+                <h4>$1 House Pre-Roll</h4>
+                <p>Choose any 1g signature strain</p>
+                <span class="reward-cost"><i class="fa-solid fa-coins"></i> 250 Points</span>
+              </div>
+            </div>
+            <button class="btn-primary btn-sm" onclick="redeemReward(250, '$1 House Pre-Roll')">Redeem</button>
+          </div>
+
+          <div class="reward-card">
+            <div class="reward-left">
+              <div class="reward-icon-box">
+                <i class="fa-solid fa-percent"></i>
+              </div>
+              <div class="reward-info">
+                <h4>20% Off Entire Cart</h4>
+                <p>Applies to non-sale items</p>
+                <span class="reward-cost"><i class="fa-solid fa-coins"></i> 500 Points</span>
+              </div>
+            </div>
+            <button class="btn-outline btn-sm" disabled style="opacity: 0.6; cursor: not-allowed;">Need 80 PTS</button>
+          </div>
+
+        </div>
+
+        <!-- Tier Benefits Summary -->
+        <div class="section-header" style="margin-top: 28px;">
+          <h3>Membership Tiers</h3>
+        </div>
+
+        <div class="tiers-comparison">
+          <div class="tier-item active">
+            <div class="tier-badge-icon gold"><i class="fa-solid fa-crown"></i></div>
+            <div class="tier-details">
+              <h4>Gold Tier <span class="current-tag">CURRENT</span></h4>
+              <p>1.25x Points Earned per $1 spent • Free Birthday Joint </p>
+            </div>
+          </div>
+
+          <div class="tier-item">
+            <div class="tier-badge-icon diamond"><i class="fa-solid fa-gem"></i></div>
+            <div class="tier-details">
+              <h4>Diamond Tier (500+ PTS)</h4>
+              <p>1.5x Points Earned per $1 spent • Free Monthly Edible • Free Express Delivery</p>
+            </div>
+          </div>
+        </div>
+
       </section>
 
       <!-- LEARN SCREEN -->
@@ -338,14 +415,12 @@
       <!-- IN-HOUSE SCREEN -->
       <section id="screen-inhouse" class="screen">
         
-        <!-- In-House Hero Header -->
         <div class="inhouse-hero">
           <span class="inhouse-badge"><i class="fa-solid fa-award"></i> Signature Collection</span>
           <h2>Grown By Us.<br>Made For You.</h2>
           <p>Hand-crafted in small batches, pesticide-free, and cultivated locally in our state-of-the-art facilities.</p>
         </div>
 
-        <!-- Quality Guarantee Badges -->
         <div class="inhouse-perks-grid">
           <div class="perk-card">
             <i class="fa-solid fa-warehouse perk-icon"></i>
@@ -361,7 +436,6 @@
           </div>
         </div>
 
-        <!-- In-House Product Showcase -->
         <div class="section-header" style="margin-top: 20px;">
           <h3>Featured In-House Drops</h3>
           <span class="see-all-link" onclick="switchTab('menu')">View All</span>
@@ -369,7 +443,6 @@
 
         <div class="inhouse-products-grid">
           
-          <!-- Product 1 -->
           <div class="inhouse-card">
             <div class="inhouse-card-thumb">
               <img src="flower.png" alt="Canna Culture Reserve Flower">
@@ -392,7 +465,6 @@
             </div>
           </div>
 
-          <!-- Product 2 -->
           <div class="inhouse-card">
             <div class="inhouse-card-thumb">
               <img src="concentrates.png" alt="Solventless Live Rosin">
@@ -415,7 +487,6 @@
             </div>
           </div>
 
-          <!-- Product 3 -->
           <div class="inhouse-card">
             <div class="inhouse-card-thumb">
               <img src="prerolls.png" alt="Infused Pre-Roll 5-Pack">
@@ -445,7 +516,6 @@
       <!-- ACCOUNT SCREEN -->
       <section id="screen-account" class="screen">
         
-        <!-- Profile Summary Card -->
         <div class="account-profile-card">
           <div class="profile-avatar">
             <i class="fa-solid fa-user"></i>
@@ -457,7 +527,6 @@
           </div>
         </div>
 
-        <!-- Account Quick Stats -->
         <div class="account-stats-grid">
           <div class="stat-box">
             <span class="stat-value" id="account-points">420</span>
@@ -469,7 +538,6 @@
           </div>
         </div>
 
-        <!-- Account Navigation Menu -->
         <div class="account-menu-list">
           
           <div class="account-menu-item" onclick="openAccountSection('orders')">
@@ -547,7 +615,7 @@
 
   </div>
 
-  <!-- MODALS OVERLAYS -->
+  <!-- MODALS & OVERLAYS -->
 
   <!-- Age Verification Modal -->
   <div id="age-modal" class="age-overlay" style="display: none;">
@@ -569,8 +637,8 @@
       <h2>Select Dispensary Location</h2>
       <p>Choose a store location to load its live menu and details.</p>
       <div class="location-buttons" style="display: flex; flex-direction: column; gap: 10px;">
-        <button class="btn-primary" onclick="setLocation('loc1')">Charter Park</button>
-        <button class="btn-primary" onclick="setLocation('loc2')">Midtown</button>
+        <button class="btn-primary" onclick="setLocation('Charter Park')">Charter Park</button>
+        <button class="btn-primary" onclick="setLocation('Midtown')">Midtown</button>
       </div>
     </div>
   </div>
@@ -652,51 +720,14 @@
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
-      <div class="settings-list">
-        <div class="settings-group-title">NOTIFICATIONS</div>
-        <div class="setting-item">
-          <div class="setting-text">
-            <span class="setting-title">Daily Deals & Drops</span>
-            <span class="setting-subtext">Get alerts on new products and daily sales</span>
-          </div>
-          <label class="toggle-switch">
-            <input type="checkbox" id="toggle-deals-notify" checked onchange="saveSettings()">
-            <span class="toggle-slider"></span>
-          </label>
-        </div>
-        <div class="setting-item">
-          <div class="setting-text">
-            <span class="setting-title">Order Status Updates</span>
-            <span class="setting-subtext">SMS / Push alerts when orders are ready</span>
-          </div>
-          <label class="toggle-switch">
-            <input type="checkbox" id="toggle-orders-notify" checked onchange="saveSettings()">
-            <span class="toggle-slider"></span>
-          </label>
-        </div>
-        <div class="settings-group-title">PREFERENCES</div>
-        <div class="setting-item">
-          <div class="setting-text">
-            <span class="setting-title">Dark Mode</span>
-            <span class="setting-subtext">Switch between light and dark themes</span>
-          </div>
-          <label class="toggle-switch">
-            <input type="checkbox" id="toggle-dark-mode" onchange="toggleDarkMode(this.checked)">
-            <span class="toggle-slider"></span>
-          </label>
-        </div>
-        <div class="settings-group-title">PRIVACY & DATA</div>
-        <div class="setting-item clickable" onclick="clearAppData()">
-          <div class="setting-text">
-            <span class="setting-title danger">Clear Cached App Data</span>
-            <span class="setting-subtext">Removes saved favorites and app preferences</span>
-          </div>
-          <i class="fa-solid fa-trash-can danger"></i>
-        </div>
+      <div class="settings-content" style="padding: 16px;">
+        <p style="font-size: 0.9rem; color: #666; margin-bottom: 12px;">Manage notification preferences, location permissions, and privacy data.</p>
+        <button class="btn-outline btn-sm" onclick="closeSettingsModal()" style="width: 100%;">Close Settings</button>
       </div>
     </div>
   </div>
 
+  <!-- JavaScript Handler Link -->
   <script src="script.js"></script>
 </body>
 </html>
