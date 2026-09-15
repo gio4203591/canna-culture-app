@@ -63,7 +63,7 @@
     <!-- App Content Screens -->
     <main id="app-content">
 
-      <!-- HOME / MENU SCREEN -->
+      <!-- HOME SCREEN -->
       <section id="screen-home" class="screen active">
         <div class="hero-banner">
           <h2>Premium Cannabis.</h2>
@@ -86,56 +86,52 @@
         <div class="product-grid" id="featured-products"></div>
       </section>
 
-      <!-- MENU SCREEN -->
-<section id="screen-menu" class="screen">
-  
-  <!-- Category Selector Grid -->
-  <div class="category-container-light">
-    <div class="category-header-light">
-      <span>Shop by Category</span>
-      <i class="fa-solid fa-sliders" style="color: #2e7d32; cursor: pointer;"></i>
-    </div>
-    
-    <div class="category-grid-light">
-      <div class="category-card-light" onclick="filterByCategory('flower')">
-        <div class="category-icon-box"><i class="fa-solid fa-cannabis"></i></div>
-        <span class="category-title-light">Flower</span>
-      </div>
-      <div class="category-card-light" onclick="filterByCategory('pre-rolls')">
-        <div class="category-icon-box"><i class="fa-solid fa-joint"></i></div>
-        <span class="category-title-light">Pre-Rolls</span>
-      </div>
-      <div class="category-card-light" onclick="filterByCategory('vapes')">
-        <div class="category-icon-box"><i class="fa-solid fa-cloud"></i></div>
-        <span class="category-title-light">Vapes</span>
-      </div>
-      <div class="category-card-light" onclick="filterByCategory('edibles')">
-        <div class="category-icon-box"><i class="fa-solid fa-cookie-bite"></i></div>
-        <span class="category-title-light">Edibles</span>
-      </div>
-      <div class="category-card-light" onclick="filterByCategory('concentrates')">
-        <div class="category-icon-box"><i class="fa-solid fa-fire"></i></div>
-        <span class="category-title-light">Concentrates</span>
-      </div>
-      <div class="category-card-light" onclick="filterByCategory('topicals')">
-        <div class="category-icon-box"><i class="fa-solid fa-pump-soap"></i></div>
-        <span class="category-title-light">Topicals</span>
-      </div>
-    </div>
-  </div>
+      <!-- LIGHT THEME MENU SCREEN -->
+      <section id="screen-menu" class="screen">
+        <div class="category-container-light">
+          <div class="category-header-light">
+            <span>Shop by Category</span>
+            <i class="fa-solid fa-sliders" style="color: #2e7d32;"></i>
+          </div>
+          
+          <div class="category-grid-light">
+            <div class="category-card-light" onclick="filterByCategory('flower')">
+              <div class="category-icon-box"><i class="fa-solid fa-cannabis"></i></div>
+              <span class="category-title-light">Flower</span>
+            </div>
+            <div class="category-card-light" onclick="filterByCategory('pre-rolls')">
+              <div class="category-icon-box"><i class="fa-solid fa-joint"></i></div>
+              <span class="category-title-light">Pre-Rolls</span>
+            </div>
+            <div class="category-card-light" onclick="filterByCategory('vapes')">
+              <div class="category-icon-box"><i class="fa-solid fa-cloud"></i></div>
+              <span class="category-title-light">Vapes</span>
+            </div>
+            <div class="category-card-light" onclick="filterByCategory('edibles')">
+              <div class="category-icon-box"><i class="fa-solid fa-cookie-bite"></i></div>
+              <span class="category-title-light">Edibles</span>
+            </div>
+            <div class="category-card-light" onclick="filterByCategory('concentrates')">
+              <div class="category-icon-box"><i class="fa-solid fa-fire"></i></div>
+              <span class="category-title-light">Concentrates</span>
+            </div>
+            <div class="category-card-light" onclick="filterByCategory('topicals')">
+              <div class="category-icon-box"><i class="fa-solid fa-pump-soap"></i></div>
+              <span class="category-title-light">Topicals</span>
+            </div>
+          </div>
+        </div>
 
-  <!-- Embed / Product Container -->
-  <div class="iframe-container" style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden;">
-    <iframe 
-      id="menu-iframe"
-      src="" 
-      style="width: 100%; height: 100%; border: none;"
-      title="Dispensary Menu"
-      allow="geolocation; camera; payment">
-    </iframe>
-  </div>
-
-</section>
+        <div class="iframe-container" style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden;">
+          <iframe 
+            id="menu-iframe"
+            src="" 
+            style="width: 100%; height: 100%; border: none;"
+            title="Dispensary Menu"
+            allow="geolocation; camera; payment">
+          </iframe>
+        </div>
+      </section>
 
       <!-- DEALS SCREEN -->
       <section id="screen-deals" class="screen">
@@ -244,7 +240,7 @@
 
     </main>
 
-    <!-- Bottom Navigation Bar (Centered 6-Tab Bar) -->
+    <!-- Bottom Navigation Bar -->
     <nav class="bottom-nav">
       <button class="nav-btn active" onclick="switchTab('home')">
         <i class="fa-solid fa-cannabis"></i>
